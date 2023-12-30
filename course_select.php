@@ -15,14 +15,14 @@
             <div id=select_type>
                 <span id="query">想要查詢：
                     <select name="options" id="options">
-                        <option value="dept" selected>系所</option>
-                        <option value="course">課程名稱</option>
-                        <option value="teacher">老師</option>
-                        <option value="time">時間</option>
+                        <option value="Dept_Name" selected>系所</option>
+                        <option value="Course_Name">課程名稱</option>
+                        <option value="Teacher_Name">老師</option>
+                        <option value="Time">時間</option>
                     </select>
                 </span>
                 <span id="department">系所：
-                <select name="options" id="options">
+                <select name="options" id="department_options">
                     <?php
                         $user = 'root';
                         $password = '01057132';

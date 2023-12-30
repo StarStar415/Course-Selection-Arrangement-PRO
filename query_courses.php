@@ -11,10 +11,10 @@ try {
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
     // Get the course name from the AJAX request
-    $courseName = $_POST['courseName'];
-
+    $courseName = $_POST['queryValue'];
+    $queryType = $_POST['queryType'];
     // Perform a database query based on the course name
-    $query = "SELECT * FROM class WHERE Course_Name LIKE :courseName";
+    $query = "SELECT * FROM class WHERE $queryType LIKE :courseName";
     $stmt = $db->prepare($query);
     $stmt->bindValue(':courseName', '%' . $courseName . '%', PDO::PARAM_STR);
     $stmt->execute();

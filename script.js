@@ -7,18 +7,18 @@ $(document).ready(function() {
         var selectedOption = $(this).val();
 
         // 隱藏所有的 span
-        $('#department, #course, #teacher,#time').hide();
+        $('#department, #course, #teacher, #time').hide();
 
         // 根據選擇的值顯示相應的 span
-        if (selectedOption === 'dept') {
+        if (selectedOption === 'Dept_Name') {
             $('#department').show();
-        } else if (selectedOption === 'course') {
+        } else if (selectedOption === 'Course_Name') {
             $('#course').show();
         }
-        else if (selectedOption === 'teacher') {
+        else if (selectedOption === 'Teacher_Name') {
             $('#teacher').show();
         }
-        else if (selectedOption === 'time') {
+        else if (selectedOption === 'Time') {
             $('#time').show();
         }
         // 可以根據需要添加其他條件
@@ -31,18 +31,33 @@ $(document).ready(function () {
     });
 
     function queryCourses() {
-        var courseName = $("#course_name").val();
+        var queryType = $("#options").val();
+        var queryValue;
+
+            // Set queryValue based on the selected option
+        if (queryType === "Dept_Name") {
+            queryValue = $("#dept_select").val(); // Assuming you have a dept_select element
+        } else if (queryType === "Course_Name") {
+            queryValue = $("#course_name").val();
+        } else if (queryType === "Teacher_Name") {
+            queryValue = $("#teacher_name").val(); // Assuming you have a teacher_name element
+        } else if (queryType === "Time") {
+            queryValue = $("#time_select").val(); // Assuming you have a time_select element
+        }
+        console.log(queryType);
+        console.log(queryValue);
+        var queryValue = $("#course_name").val();
         $.ajax({
             type: "POST",
             url: "query_courses.php",
-            data: { courseName: courseName },
+            data: { queryType: queryType, queryValue: queryValue },
 
             
             success: function (response) {
                 var tableHTML = '<table id ="nowCourse" border="1"><thead><tr><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
                 var courseData = JSON.parse(response);
+                console.log(courseData);
                 for (var i = 0; i < courseData.length; i++) {
-                    console.log(courseData[i]["Course_ID"]);
                     tableHTML += '<tr>';
                     tableHTML += '<td>' + courseData[i].Course_ID + '</td>';
                     tableHTML += '<td>' + courseData[i].Course_Name + '</td>';
@@ -64,3 +79,44 @@ $(document).ready(function () {
         });
     }
 });
+
+// $(document).ready(function () {
+//     $("#queryButton").click(function () {
+//         queryCourses();
+//     });
+
+//     function queryCourses() {
+//         var courseName = $("#course_name").val();
+//         $.ajax({
+//             type: "POST",
+//             url: "query_courses.php",
+//             data: { courseName: courseName },
+
+            
+//             success: function (response) {
+//                 var tableHTML = '<table id ="nowCourse" border="1"><thead><tr><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
+//                 var courseData = JSON.parse(response);
+//                 for (var i = 0; i < courseData.length; i++) {
+//                     console.log(courseData[i]["Course_ID"]);
+//                     tableHTML += '<tr>';
+//                     tableHTML += '<td>' + courseData[i].Course_ID + '</td>';
+//                     tableHTML += '<td>' + courseData[i].Course_Name + '</td>';
+//                     tableHTML += '<td>' + courseData[i].Dept_Name + '</td>';
+//                     tableHTML += '<td>' + courseData[i].Grade + '</td>';
+//                     tableHTML += '<td>' + courseData[i].Teacher_Name + '</td>';
+//                     tableHTML += '<td>' + courseData[i].Class_Type + '</td>';
+//                     tableHTML += '<td>' + courseData[i].Time + '</td>';
+//                     tableHTML += '</tr>';
+//                 }
+                
+//                 tableHTML += '</tbody></table>';
+
+//                 $("#selectionClass").html(tableHTML);
+//             },
+//             error: function (error) {
+//                 console.error("Error:", error);
+//             }
+//         });
+//     }
+// });
+

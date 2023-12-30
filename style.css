@@ -200,8 +200,8 @@ select option {
     text-align: left;
     background-color: #f2f2f2;
 }
-th,  td {
-    border: 1px solid #ddd;
+#nowCourse th, #nowCourse td {
+    border: 1px solid #dfaff5;
     padding: 8px;
     text-align: left;
     background-color: #e6e6fa;
