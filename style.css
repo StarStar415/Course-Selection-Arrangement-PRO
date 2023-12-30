@@ -137,6 +137,7 @@ select option {
 #course_id,
 #query,
 #sport,
+#generalEducation,
 #teacher,
 #time {
     display: inline-block;

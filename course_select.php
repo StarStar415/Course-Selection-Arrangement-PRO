@@ -115,6 +115,23 @@
                         <option value="體育特別班">體育特別班</option>
                     </select>
                 </span>
+
+                <span id="generalEducation">類型：
+                    <select name="options" id="generalEducation_select">
+                        <option value="(歷史)">歷史</option>
+                        <option value="(人格)">人格</option>
+                        <option value="(科技)">科技</option>
+                        <option value="(美學)">美學</option>
+                        <option value="(自然)">自然</option>
+                        <option value="(全球)">全球</option>
+                        <option value="(經典)">經典</option>
+                        <option value="(民主)">民主</option>
+                        <option value="【人文探索】">人文探索</option>
+                        <option value="【跨域永續】">跨域永續</option>
+                        <option value="【科技創新】">科技創新</option>
+                        <option value="【社會脈動】">社會脈動</option>
+                    </select>
+                </span>
                 <span id="submit">
                     <button id="queryButton">查詢</button>
                 </span>                

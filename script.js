@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#course, #teacher, #time ,#course_id, #sport').hide();
+    $('#course, #teacher, #time ,#course_id, #sport,#generalEducation').hide();
     $('#department').show();
     // 監聽選擇框變化事件
     $('#options').change(function() {
@@ -7,7 +7,7 @@ $(document).ready(function() {
         var selectedOption = $(this).val();
 
         // 隱藏所有的 span
-        $('#department, #course, #teacher, #time ,#course_id, #sport').hide();
+        $('#department, #course, #teacher, #time ,#course_id, #sport,#generalEducation').hide();
 
         // 根據選擇的值顯示相應的 span
         if (selectedOption === 'Dept_Name') {
@@ -26,6 +26,9 @@ $(document).ready(function() {
         }
         else if(selectedOption === 'Sport'){
             $('#sport').show();
+        }
+        else if(selectedOption === 'GeneralEducation'){
+            $('#generalEducation').show();
         }
         // 可以根據需要添加其他條件
     });
@@ -61,6 +64,10 @@ $(document).ready(function () {
         else if(queryType === "Sport"){
             queryType = "Course_Name"; 
             queryValue = $("#sport_select").val(); 
+        }
+        else if(queryType === "GeneralEducation"){
+            queryType = "Course_Name"; 
+            queryValue = $("#generalEducation_select").val(); 
         }
         console.log(queryType);
         console.log(queryValue);
