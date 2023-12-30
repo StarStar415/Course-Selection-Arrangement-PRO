@@ -61,17 +61,17 @@
                     <input type="text" name="teacher_name" id="teacher_name">
                 </span>
                 <span id="time">時間：
-                    <select name="options" id="timeoptions">
-                        <option value="Monday">星期一</option>
-                        <option value="Tuesday">星期二</option>
-                        <option value="Wednesday">星期三</option>
-                        <option value="Thursday">星期四</option>
-                        <option value="Friday">星期五</option>
-                        <option value="Saturday">星期六</option>
-                        <option value="Sunday">星期日</option>
+                    <select name="options" id="time_options1">
+                        <option value="1">星期一</option>
+                        <option value="2">星期二</option>
+                        <option value="3">星期三</option>
+                        <option value="4">星期四</option>
+                        <option value="5">星期五</option>
+                        <option value="6">星期六</option>
+                        <option value="7">星期日</option>
                     </select>
 
-                    <select name="options" id="timeoptions">
+                    <select name="options" id="time_options2">
                         <?php
                             for ($i = 1; $i <= 14; $i++) {
                                 echo "<option value='{$i}'>第{$i}節</option>";

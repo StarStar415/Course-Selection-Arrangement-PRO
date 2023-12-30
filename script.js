@@ -34,15 +34,19 @@ $(document).ready(function () {
         var queryType = $("#options").val();
         var queryValue;
 
-            // Set queryValue based on the selected option
         if (queryType === "Dept_Name") {
-            queryValue = $("#dept_select").val(); // Assuming you have a dept_select element
+            queryValue = $("#dept_select").val(); 
         } else if (queryType === "Course_Name") {
             queryValue = $("#course_name").val();
         } else if (queryType === "Teacher_Name") {
-            queryValue = $("#teacher_name").val(); // Assuming you have a teacher_name element
+            queryValue = $("#teacher_name").val(); 
         } else if (queryType === "Time") {
-            queryValue = $("#time_select").val(); // Assuming you have a time_select element
+            queryValue = $("#time_options1").val(); 
+            if($("#time_options2").val() < 10){
+                queryValue = queryValue + 0 + $("#time_options2").val(); 
+            }
+            else queryValue += $("#time_options2").val(); 
+           
         }
         console.log(queryType);
         console.log(queryValue);
