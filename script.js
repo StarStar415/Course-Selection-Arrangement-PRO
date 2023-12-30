@@ -91,7 +91,6 @@ $(document).ready(function () {
         
 
         function displayResults(response) {
-            // Assuming 'data' is an array of objects, modify as needed
             var tableHTML = '<table id ="nowCourse" border="1"><thead><tr><th style="width: 50px;">選擇</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
             var courseData = JSON.parse(response);
             console.log(courseData);
@@ -117,7 +116,6 @@ $(document).ready(function () {
 
 function start(){
     document.getElementById("exportButton").addEventListener("click", () => {
-        // 取得表格元素
         let table = document.getElementById("classTable");
 
         console.log(table.innerHTML);
@@ -125,8 +123,6 @@ function start(){
         const width = table.offsetWidth;
         const height = table.offsetHeight;
 
-
-        // 將表格開在另外一個視窗
         let printWindow = window.open('', '', `width=${width}, height=${height}`);
 
         printWindow.document.write('<html><head><title>Print Table</title>');
