@@ -14,7 +14,7 @@ try {
     $courseName = $_POST['queryValue'];
     $queryType = $_POST['queryType'];
     // Perform a database query based on the course name
-    $query = "SELECT * FROM class WHERE $queryType LIKE :courseName";
+    $query = "SELECT * FROM class WHERE $queryType LIKE :courseName ORDER BY Grade";
     $stmt = $db->prepare($query);
     $stmt->bindValue(':courseName', '%' . $courseName . '%', PDO::PARAM_STR);
     $stmt->execute();
