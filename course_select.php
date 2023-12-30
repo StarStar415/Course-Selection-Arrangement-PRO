@@ -17,6 +17,7 @@
                     <select name="options" id="options">
                         <option value="Dept_Name" selected>系所</option>
                         <option value="Course_Name">課程名稱</option>
+                        <option value="Course_ID">課號</option>
                         <option value="Teacher_Name">老師</option>
                         <option value="Time">時間</option>
                     </select>
@@ -61,8 +62,11 @@
                         <option value="4">四年級</option>
                     </select>
                 </span>
-                <span id="course">課程名稱：
+                <span id="course">課名：
                     <input type="text" name="course_name" id="course_name">
+                </span>
+                <span id="course_id">課號：
+                    <input type="text" name="course_id_in" id="course_id_in">
                 </span>
                 <span id="teacher">老師：
                     <input type="text" name="teacher_name" id="teacher_name">

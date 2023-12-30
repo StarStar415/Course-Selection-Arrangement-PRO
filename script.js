@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#course, #teacher, #time').hide();
+    $('#course, #teacher, #time ,#course_id').hide();
     $('#department').show();
     // 監聽選擇框變化事件
     $('#options').change(function() {
@@ -7,7 +7,7 @@ $(document).ready(function() {
         var selectedOption = $(this).val();
 
         // 隱藏所有的 span
-        $('#department, #course, #teacher, #time').hide();
+        $('#department, #course, #teacher, #time ,#course_id').hide();
 
         // 根據選擇的值顯示相應的 span
         if (selectedOption === 'Dept_Name') {
@@ -20,6 +20,9 @@ $(document).ready(function() {
         }
         else if (selectedOption === 'Time') {
             $('#time').show();
+        }
+        else if (selectedOption === 'Course_ID') {
+            $('#course_id').show();
         }
         // 可以根據需要添加其他條件
     });
@@ -48,7 +51,9 @@ $(document).ready(function () {
                 queryValue = queryValue + 0 + $("#time_options2").val(); 
             }
             else queryValue += $("#time_options2").val(); 
-           
+        }
+        else if(queryType === "Course_ID"){
+            queryValue = $("#course_id_in").val(); 
         }
         if(queryType == "Dept_Name"){
             if(queryGrade == "all"){

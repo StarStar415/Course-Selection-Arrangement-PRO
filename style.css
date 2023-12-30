@@ -134,6 +134,7 @@ select option {
 
 #department,
 #course,
+#course_id,
 #query,
 #teacher,
 #time {
@@ -141,7 +142,7 @@ select option {
     margin-right: 30px; /* 調整兩者之間的間距 */
 }
 
-#course_name,#teacher_name {
+#course_name,#teacher_name,#course_id_in{ 
     width: 200px; /* 設定文字框寬度 */
     padding: 8px; /* 設定內邊距 */
     font-size: 16px; /* 設定字型大小 */
@@ -151,7 +152,7 @@ select option {
 }
 
 /* 當文字框被選中時的樣式 */
-#course_name:focus,#teacher_name:focus {
+#course_name:focus,#teacher_name:focus #course_id_in:focus{
     border-color: #bd99d2; /* 修改邊框顏色 */
     box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
