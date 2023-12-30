@@ -61,7 +61,7 @@
                     <input type="text" name="teacher_name" id="teacher_name">
                 </span>
                 <span id="time">時間：
-                    <select name="options" id="options">
+                    <select name="options" id="timeoptions">
                         <option value="Monday">星期一</option>
                         <option value="Tuesday">星期二</option>
                         <option value="Wednesday">星期三</option>
@@ -71,7 +71,7 @@
                         <option value="Sunday">星期日</option>
                     </select>
 
-                    <select name="options" id="options">
+                    <select name="options" id="timeoptions">
                         <?php
                             for ($i = 1; $i <= 14; $i++) {
                                 echo "<option value='{$i}'>第{$i}節</option>";
@@ -79,7 +79,9 @@
                         ?>
                     </select>
                 </span>
-
+                <span id="submit">
+                    <button id="queryButton">查詢</button>
+                </span>                
             </div>
         <br>
             <div id="selectionClass">

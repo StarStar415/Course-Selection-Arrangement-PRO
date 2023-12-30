@@ -89,7 +89,12 @@ body{
     font-size: 20px;
 }
 
-#options {
+#timeoptions {
+    width: 100px; /* 設定選單寬度 */
+    
+}
+
+select {
     width: 200px; /* 設定選單寬度 */
     padding: 8px; /* 設定內邊距 */
     font-size: 16px; /* 設定字型大小 */
@@ -99,17 +104,17 @@ body{
 }
 
 /* 當選單展開時的樣式 */
-#options:focus {
+select:focus {
     border-color: #bd99d2; /* 修改邊框顏色 */
     box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
-#options:hover {
-    background-color: #d7bae8; /* 修改背景顏色 */
+select:hover {
+    background-color: #ddcde7; /* 修改背景顏色 */
     color: #fff; /* 修改文字顏色 */
 }
 /* 設定選項的樣式 */
-#options option {
+select option {
     padding: 8px; /* 設定內邊距 */
     font-size: 14px; /* 設定字型大小 */
     background-color: #fff; /* 設定背景顏色 */
@@ -118,7 +123,7 @@ body{
 
 /* 當選項被選中時的樣式 */
 #options option:checked {
-    background-color: #bd99d2; /* 修改背景顏色 */
+    background-color: #ddcde7; /* 修改背景顏色 */
     color: #fff; /* 修改文字顏色 */
 }   
 
@@ -150,3 +155,55 @@ body{
     border-color: #bd99d2; /* 修改邊框顏色 */
     box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
+
+#queryButton {
+    width: 80px; /* Set the width */
+    padding: 8px; /* Set the padding */
+    font-size: 16px; /* Set the font size */
+    border: 1px solid #ccc; /* Set the border */
+    border-radius: 4px; /* Set the border-radius */
+    outline: none; /* Remove the outline on focus */
+    cursor: pointer; /* Add a pointer cursor */
+    background-color: #fff; /* Set the background color */
+}
+
+/* Style the button when hovered */
+#queryButton:hover {
+    background-color: #ddcde7; /* 修改背景顏色 */
+    color: #fff; /* 修改文字顏色 */
+}
+
+/* Style the button when focused (e.g., after clicking) */
+#queryButton:focus {
+    border-color: #bd99d2; /* 修改邊框顏色 */
+    box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
+}
+
+#selectionClass {
+    width: 100%;
+    height: 600px; /* Set the height to 400px */
+    border: 2px solid #800080;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #e6e6fa; /* Set a light purple background color */
+    overflow: auto;
+}
+
+
+#nowCourse{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+}
+th,  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #e6e6fa;
+}
+
