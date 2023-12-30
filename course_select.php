@@ -20,6 +20,8 @@
                         <option value="Course_ID">課號</option>
                         <option value="Teacher_Name">老師</option>
                         <option value="Time">時間</option>
+                        <option value="Sport">體育</option>
+                        <option value="GeneralEducation">通識</option>
                     </select>
                 </span>
                 <span id="department">系所：
@@ -88,6 +90,29 @@
                                 echo "<option value='{$i}'>第{$i}節</option>";
                             }
                         ?>
+                    </select>
+                </span>
+                <span id="sport">類型：
+                    <select name="options" id="sport_select">
+                        <option value="網球">網球</option>
+                        <option value="桌球">桌球</option>
+                        <option value="籃球">籃球</option>
+                        <option value="排球">排球</option>
+                        <option value="游泳">游泳</option>
+                        <option value="羽球">羽球</option>
+                        <option value="瑜珈">瑜珈</option>
+                        <option value="健美">健美</option>
+                        <option value="潛水">潛水</option>
+                        <option value="帆船">帆船</option>
+                        <option value="獨木舟">獨木舟</option>
+                        <option value="橄欖球">橄欖球</option>
+                        <option value="太極拳">太極拳</option>
+                        <option value="重量訓練">重量訓練</option>
+                        <option value="肌力雕塑">肌力雕塑</option>
+                        <option value="有氧舞蹈">有氧舞蹈</option>
+                        <option value="SUP風浪板">SUP風浪板</option>
+                        <option value="健康體適能">健康體適能</option>
+                        <option value="體育特別班">體育特別班</option>
                     </select>
                 </span>
                 <span id="submit">
