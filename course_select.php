@@ -53,6 +53,13 @@
                         }
                     ?>
                 </select>
+                <select name="options" id="grade_select">
+                        <option value="all">全部</option>
+                        <option value="1">一年級</option>
+                        <option value="2">二年級</option>
+                        <option value="3">三年級</option>
+                        <option value="4">四年級</option>
+                    </select>
                 </span>
                 <span id="course">課程名稱：
                     <input type="text" name="course_name" id="course_name">

@@ -33,9 +33,11 @@ $(document).ready(function () {
     function queryCourses() {
         var queryType = $("#options").val();
         var queryValue;
+        var queryGrade;
 
         if (queryType === "Dept_Name") {
             queryValue = $("#dept_select").val(); 
+            queryGrade = $("#grade_select").val();  
         } else if (queryType === "Course_Name") {
             queryValue = $("#course_name").val();
         } else if (queryType === "Teacher_Name") {
@@ -48,39 +50,63 @@ $(document).ready(function () {
             else queryValue += $("#time_options2").val(); 
            
         }
-        console.log(queryType);
-        console.log(queryValue);
-        $.ajax({
-            type: "POST",
-            url: "query_courses.php",
-            data: { queryType: queryType, queryValue: queryValue },
-
-            
-            success: function (response) {
-                var tableHTML = '<table id ="nowCourse" border="1"><thead><tr><th style="width: 50px;">選擇</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
-                var courseData = JSON.parse(response);
-                console.log(courseData);
-                for (var i = 0; i < courseData.length; i++) {
-                    tableHTML += '<tr>';
-                    tableHTML += '<label><td style="width: 50px;"><input type="checkbox" name="selectedCourses[]" value="' + courseData[i].Course_ID + '"></td></label>';
-                    tableHTML += '<td>' + courseData[i].Course_ID + '</td>';
-                    tableHTML += '<td>' + courseData[i].Course_Name + '</td>';
-                    tableHTML += '<td>' + courseData[i].Dept_Name + '</td>';
-                    tableHTML += '<td>' + courseData[i].Grade + '</td>';
-                    tableHTML += '<td>' + courseData[i].Teacher_Name + '</td>';
-                    tableHTML += '<td>' + courseData[i].Class_Type + '</td>';
-                    tableHTML += '<td>' + courseData[i].Time + '</td>';
-                    tableHTML += '</tr>';
-                }
-                
-                tableHTML += '</tbody></table>';
-
-                $("#selectionClass").html(tableHTML);
-            },
-            error: function (error) {
-                console.error("Error:", error);
+        if(queryType == "Dept_Name"){
+            if(queryGrade == "all"){
+                queryGrade = "";
             }
-        });
+            $.ajax({
+                type: "POST",
+                url: "query_courses_dept.php",
+                data: { queryType: queryType, queryValue: queryValue, queryGrade: queryGrade},
+    
+                success: function (response) {
+                    console.log(response);
+                    displayResults(response)
+                },
+                error: function (error) {
+                    console.error("Error:", error);
+                }
+            });
+        }
+        else{
+            $.ajax({
+                type: "POST",
+                url: "query_courses.php",
+                data: { queryType: queryType, queryValue: queryValue },
+    
+                success: function (response) {
+                    console.log(response);
+                    displayResults(response)
+                },
+                error: function (error) {
+                    console.error("Error:", error);
+                }
+            });
+        }
+        
+
+        function displayResults(response) {
+            // Assuming 'data' is an array of objects, modify as needed
+            var tableHTML = '<table id ="nowCourse" border="1"><thead><tr><th style="width: 50px;">選擇</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
+            var courseData = JSON.parse(response);
+            console.log(courseData);
+            for (var i = 0; i < courseData.length; i++) {
+                tableHTML += '<tr>';
+                tableHTML += '<label><td style="width: 50px;"><input type="checkbox" name="selectedCourses[]" value="' + courseData[i].Course_ID + '"></td></label>';
+                tableHTML += '<td>' + courseData[i].Course_ID + '</td>';
+                tableHTML += '<td>' + courseData[i].Course_Name + '</td>';
+                tableHTML += '<td>' + courseData[i].Dept_Name + '</td>';
+                tableHTML += '<td>' + courseData[i].Grade + '</td>';
+                tableHTML += '<td>' + courseData[i].Teacher_Name + '</td>';
+                tableHTML += '<td>' + courseData[i].Class_Type + '</td>';
+                tableHTML += '<td>' + courseData[i].Time + '</td>';
+                tableHTML += '</tr>';
+            }
+            
+            tableHTML += '</tbody></table>';
+
+            $("#selectionClass").html(tableHTML);
+        }
     }
 });
 
