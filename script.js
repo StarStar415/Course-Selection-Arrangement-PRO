@@ -46,7 +46,6 @@ $(document).ready(function () {
         }
         console.log(queryType);
         console.log(queryValue);
-        var queryValue = $("#course_name").val();
         $.ajax({
             type: "POST",
             url: "query_courses.php",
@@ -132,7 +131,7 @@ function start(){
     });
 }
 
-window.addEventListener("load",start,false);
+// window.addEventListener("load",start,false);
 // $(document).ready(function () {
 //     $("#queryButton").click(function () {
 //         queryCourses();

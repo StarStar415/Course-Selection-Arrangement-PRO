@@ -22,7 +22,7 @@
                     </select>
                 </span>
                 <span id="department">系所：
-                <select name="options" id="department_options">
+                <select name="options" id="dept_select">
                     <?php
                         $user = 'root';
                         $password = '01057132';
