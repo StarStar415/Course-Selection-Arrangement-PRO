@@ -4,43 +4,83 @@
         <style type="text/css">
             @import "style.css";
         </style>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="script.js"></script>
     </head>
     <body>
         <h1>學途~啟航!</h1>
         <div id="container">
         <div id="left">
             <h2>選課</h2>
-            <select name="options" id="options">
-                <?php
-                    $user = 'test';
-                    $password = 'test';
-                    try{
-                        $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8',$user,$password);
-                        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        $db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-                        
-                        $query = ("select distinct Dept_Name from class");
-                        $stmt = $db->prepare($query);
-                        $stmt->execute();
-                        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                        $rowCount = $stmt->rowCount();
-                        
-                        if ($rowCount > 0) {
-                            foreach ($result as $row) {
-                                echo "<option value='{$row["Dept_Name"]}'>{$row["Dept_Name"]}</option>";
+            <div id=select_type>
+                <span id="query">想要查詢：
+                    <select name="options" id="options">
+                        <option value="dept" selected>系所</option>
+                        <option value="course">課程名稱</option>
+                        <option value="teacher">老師</option>
+                        <option value="time">時間</option>
+                    </select>
+                </span>
+                <span id="department">系所：
+                <select name="options" id="options">
+                    <?php
+                        $user = 'root';
+                        $password = '01057132';
+                        try{
+                            $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8',$user,$password);
+                            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            $db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+                            
+                            $query = ("select distinct Dept_Name from class");
+                            $stmt = $db->prepare($query);
+                            $stmt->execute();
+                            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                            $rowCount = $stmt->rowCount();
+                            
+                            if ($rowCount > 0) {
+                                foreach ($result as $row) {
+                                    echo "<option value='{$row["Dept_Name"]}'>{$row["Dept_Name"]}</option>";
+                                }
+                            } else {
+                                echo "<option value=''>No options available</option>";
                             }
-                        } else {
-                            echo "<option value=''>No options available</option>";
+                            
+                            $db = null;
+                        }catch(PDOException $e){
+                            
+                            Print "ERROR!:". $e->getMessage();
+                            die();
                         }
-                        
-                        $db = null;
-                    }catch(PDOException $e){
-                        
-                        Print "ERROR!:". $e->getMessage();
-                        die();
-                    }
-                ?>
-            </select>
+                    ?>
+                </select>
+                </span>
+                <span id="course">課程名稱：
+                    <input type="text" name="course_name" id="course_name">
+                </span>
+                <span id="teacher">老師：
+                    <input type="text" name="teacher_name" id="teacher_name">
+                </span>
+                <span id="time">時間：
+                    <select name="options" id="options">
+                        <option value="Monday">星期一</option>
+                        <option value="Tuesday">星期二</option>
+                        <option value="Wednesday">星期三</option>
+                        <option value="Thursday">星期四</option>
+                        <option value="Friday">星期五</option>
+                        <option value="Saturday">星期六</option>
+                        <option value="Sunday">星期日</option>
+                    </select>
+
+                    <select name="options" id="options">
+                        <?php
+                            for ($i = 1; $i <= 14; $i++) {
+                                echo "<option value='{$i}'>第{$i}節</option>";
+                            }
+                        ?>
+                    </select>
+                </span>
+
+            </div>
         <br>
             <div id="selectionClass">
             </div>

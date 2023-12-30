@@ -5,6 +5,13 @@
     flex-direction: row;
     justify-content: space-between;
 }
+h1 {
+    text-align: center; /* 文字置中 */
+    padding: 20px; /* 上下左右留白 */
+    background-color: #9f93c6; /* 紫色系背景色 */
+    color: #fff; /* 文字顏色 */
+    margin: 0; /* 清除預設的外邊距 */
+}
 
 #left {
     width: 50%;
@@ -47,7 +54,7 @@ h1{
     height: 50px;
 }
 #exportButton:hover{
-    background-color: rgb(230, 168, 168);
+    background-color: #bd99d2;
 }
 h2{
     text-align: center;
@@ -70,7 +77,7 @@ select{
     bottom: 120px;
     border-radius:5px;
     width: 150px;
-    border: solid rgb(240, 138, 138);
+    border: solid #d8bae9;
 
 }
 select option{
@@ -93,10 +100,14 @@ body{
 
 /* 當選單展開時的樣式 */
 #options:focus {
-    border-color: #007bff; /* 修改邊框顏色 */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 增加陰影效果 */
+    border-color: #bd99d2; /* 修改邊框顏色 */
+    box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
+#options:hover {
+    background-color: #d7bae8; /* 修改背景顏色 */
+    color: #fff; /* 修改文字顏色 */
+}
 /* 設定選項的樣式 */
 #options option {
     padding: 8px; /* 設定內邊距 */
@@ -107,6 +118,35 @@ body{
 
 /* 當選項被選中時的樣式 */
 #options option:checked {
-    background-color: #007bff; /* 修改背景顏色 */
+    background-color: #bd99d2; /* 修改背景顏色 */
     color: #fff; /* 修改文字顏色 */
 }   
+
+#select_type {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+
+#department,
+#course,
+#query,
+#teacher,
+#time {
+    display: inline-block;
+    margin-right: 30px; /* 調整兩者之間的間距 */
+}
+
+#course_name,#teacher_name {
+    width: 200px; /* 設定文字框寬度 */
+    padding: 8px; /* 設定內邊距 */
+    font-size: 16px; /* 設定字型大小 */
+    border: 1px solid #ccc; /* 設定邊框 */
+    border-radius: 4px; /* 設定圓角 */
+    outline: none; /* 去除點擊時的外框 */
+}
+
+/* 當文字框被選中時的樣式 */
+#course_name:focus,#teacher_name:focus {
+    border-color: #bd99d2; /* 修改邊框顏色 */
+    box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
+}
