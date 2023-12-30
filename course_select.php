@@ -1,0 +1,185 @@
+<html>
+    <head>
+        <title>Course Select</title>
+        <style type="text/css">
+            @import "style.css";
+        </style>
+    </head>
+    <body>
+        <h1>學途~啟航!</h1>
+        <div id="container">
+        <div id="left">
+            <h2>選課</h2>
+            <select name="options" id="options">
+                <?php
+                    $user = 'test';
+                    $password = 'test';
+                    try{
+                        $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8',$user,$password);
+                        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        $db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+                        
+                        $query = ("select distinct Dept_Name from class");
+                        $stmt = $db->prepare($query);
+                        $stmt->execute();
+                        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        $rowCount = $stmt->rowCount();
+                        
+                        if ($rowCount > 0) {
+                            foreach ($result as $row) {
+                                echo "<option value='{$row["Dept_Name"]}'>{$row["Dept_Name"]}</option>";
+                            }
+                        } else {
+                            echo "<option value=''>No options available</option>";
+                        }
+                        
+                        $db = null;
+                    }catch(PDOException $e){
+                        
+                        Print "ERROR!:". $e->getMessage();
+                        die();
+                    }
+                ?>
+            </select>
+        <br>
+            <div id="selectionClass">
+            </div>
+            <br>
+            <button id="exportButton">Export to PDF</button>
+        </div>
+
+        <div id="right">
+            <h2>目前課表</h2>
+            <table id = "classTable">
+                <thead>
+                    <tr>
+                        <th>時間</th>
+                        <th>星期一</th>
+                        <th>星期二</th>
+                        <th>星期三</th>
+                        <th>星期四</th>
+                        <th>星期五</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>08:20</td>
+                        <td id="101"></td>
+                        <td id="201"></td>
+                        <td id="301"></td>
+                        <td id="401"></td>
+                        <td id="501"></td>
+                    </tr>
+                    <tr>
+                        <td>09:20</td>
+                        <td id="102"></td>
+                        <td id="202"></td>
+                        <td id="302"></td>
+                        <td id="402"></td>
+                        <td id="502"></td>
+                    </tr>
+                    <tr>
+                        <td>10:20</td>
+                        <td id="103"></td>
+                        <td id="203"></td>
+                        <td id="303"></td>
+                        <td id="403"></td>
+                        <td id="503"></td>
+                    </tr>
+                    <tr>
+                        <td>11:15</td>
+                        <td id="104"></td>
+                        <td id="204"></td>
+                        <td id="304"></td>
+                        <td id="404"></td>
+                        <td id="504"></td>
+                    </tr>
+                    <tr>
+                        <td>12:10</td>
+                        <td id="105"></td>
+                        <td id="205"></td>
+                        <td id="305"></td>
+                        <td id="405"></td>
+                        <td id="505"></td>
+                    </tr>
+                    <tr>
+                        <td>13:10</td>
+                        <td id="106"></td>
+                        <td id="206"></td>
+                        <td id="306"></td>
+                        <td id="406"></td>
+                        <td id="506"></td>
+                    </tr>
+                    <tr>
+                        <td>14:10</td>
+                        <td id="107"></td>
+                        <td id="207"></td>
+                        <td id="307"></td>
+                        <td id="407"></td>
+                        <td id="507"></td>
+                    </tr>
+                    <tr>
+                        <td>15:10</td>
+                        <td id="108"></td>
+                        <td id="208"></td>
+                        <td id="308"></td>
+                        <td id="408"></td>
+                        <td id="508"></td>
+                    </tr>
+                    <tr>
+                        <td>16:05</td>
+                        <td id="109"></td>
+                        <td id="209"></td>
+                        <td id="309"></td>
+                        <td id="409"></td>
+                        <td id="509"></td>
+                    </tr>
+                    <tr>
+                        <td>17:30</td>
+                        <td id="110"></td>
+                        <td id="210"></td>
+                        <td id="310"></td>
+                        <td id="410"></td>
+                        <td id="510"></td>
+                    </tr>
+                    <tr>
+                        <td>18:30</td>
+                        <td id="111"></td>
+                        <td id="211"></td>
+                        <td id="311"></td>
+                        <td id="411"></td>
+                        <td id="511"></td>
+                    </tr>
+                    <tr>
+                        <td>19:25</td>
+                        <td id="112"></td>
+                        <td id="212"></td>
+                        <td id="312"></td>
+                        <td id="412"></td>
+                        <td id="512"></td>
+                    </tr>
+                    <tr>
+                        <td>20:20</td>
+                        <td id="113"></td>
+                        <td id="213"></td>
+                        <td id="313"></td>
+                        <td id="413"></td>
+                        <td id="513"></td>
+                    </tr>
+                    <tr>
+                        <td>21:15</td>
+                        <td id="114"></td>
+                        <td id="214"></td>
+                        <td id="314"></td>
+                        <td id="414"></td>
+                        <td id="514"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+        
+        
+    </body>
+</html>

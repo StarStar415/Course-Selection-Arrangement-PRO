@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Lobster&display=swap');
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#left {
+    width: 50%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#right {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    width: 100px;
+    height: 60px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+#exportButton{
+    background-color: rgb(255, 255, 255);
+    border: 3px solid rgb(6, 22, 17);
+    font-size: 150%;
+    width: 500px;
+    border-radius: 5px;
+    height: 50px;
+}
+#exportButton:hover{
+    background-color: rgb(230, 168, 168);
+}
+h2{
+    text-align: center;
+    font-size: 30px;
+}
+
+input[type=checkbox] {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+label {
+    display: block;
+}    
+#choose{
+    font-size: 30px;
+}
+select{
+    font-size: 70%;
+    bottom: 120px;
+    border-radius:5px;
+    width: 150px;
+    border: solid rgb(240, 138, 138);
+
+}
+select option{
+    bottom: 120px;
+    width: 150px;
+}
+body{
+    font-family: 'cwTeXYen','Comfortaa', sans-serif;
+    font-size: 20px;
+}
+
+#options {
+    width: 200px; /* 設定選單寬度 */
+    padding: 8px; /* 設定內邊距 */
+    font-size: 16px; /* 設定字型大小 */
+    border: 1px solid #ccc; /* 設定邊框 */
+    border-radius: 4px; /* 設定圓角 */
+    outline: none; /* 去除點擊時的外框 */
+}
+
+/* 當選單展開時的樣式 */
+#options:focus {
+    border-color: #007bff; /* 修改邊框顏色 */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 增加陰影效果 */
+}
+
+/* 設定選項的樣式 */
+#options option {
+    padding: 8px; /* 設定內邊距 */
+    font-size: 14px; /* 設定字型大小 */
+    background-color: #fff; /* 設定背景顏色 */
+    color: #333; /* 設定文字顏色 */
+}
+
+/* 當選項被選中時的樣式 */
+#options option:checked {
+    background-color: #007bff; /* 修改背景顏色 */
+    color: #fff; /* 修改文字顏色 */
+}   
