@@ -30,7 +30,6 @@ input[type="checkbox"] {
     align-items: center; /* 垂直置中 */
 }
 
-/* Checkbox 標記（打勾部分）的樣式 */
 input[type="checkbox"]:checked::before {
     content: '\2713'; /* Unicode 打勾符號 */
     font-size: 16px; /* 打勾符號大小 */
@@ -41,7 +40,6 @@ input[type="checkbox"]:checked::before {
     transform: translate(-50%, -50%);
 }
 
-/* 鼠標懸停時的樣式 */
 input[type="checkbox"]:hover {
     background-color: #aa83bf; /* 紫色系懸停時背景色 */
     border: 1px solid #ad89c0; /* 紫色系懸停時邊框色 */
@@ -96,11 +94,6 @@ h2{
     font-size: 30px;
 }
 
-/* input[type=checkbox] {
-    display: inline-block;
-    margin-right: 5px;
-} */
-
 label {
     display: block;
 }    
@@ -138,7 +131,6 @@ select {
     outline: none; /* 去除點擊時的外框 */
 }
 
-/* 當選單展開時的樣式 */
 select:focus {
     border-color: #bd99d2; /* 修改邊框顏色 */
     box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
@@ -148,7 +140,7 @@ select:hover {
     background-color: #ddcde7; /* 修改背景顏色 */
     color: #fff; /* 修改文字顏色 */
 }
-/* 設定選項的樣式 */
+
 select option {
     padding: 8px; /* 設定內邊距 */
     font-size: 14px; /* 設定字型大小 */
@@ -156,7 +148,6 @@ select option {
     color: #333; /* 設定文字顏色 */
 }
 
-/* 當選項被選中時的樣式 */
 #options option:checked {
     background-color: #ddcde7; /* 修改背景顏色 */
     color: #fff; /* 修改文字顏色 */
@@ -188,7 +179,6 @@ select option {
     outline: none; /* 去除點擊時的外框 */
 }
 
-/* 當文字框被選中時的樣式 */
 #course_name:focus,#teacher_name:focus #course_id_in:focus{
     border-color: #bd99d2; /* 修改邊框顏色 */
     box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
@@ -205,19 +195,18 @@ select option {
     background-color: #fff; /* Set the background color */
 }
 
-/* Style the button when hovered */
 #queryButton:hover {
     background-color: #ddcde7; /* 修改背景顏色 */
     color: #fff; /* 修改文字顏色 */
 }
 
-/* Style the button when focused (e.g., after clicking) */
 #queryButton:focus {
     border-color: #bd99d2; /* 修改邊框顏色 */
     box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
-#selectionClass {
+#selectionClass, 
+#nowSelectionClass {
     width: 100%;
     height: 600px; /* Set the height to 400px */
     border: 5px solid #af86c3;
@@ -248,7 +237,6 @@ select option {
     background-color: #e6e6fa;
 }
 
-/* WebKit (Safari, Chrome) */
 ::-webkit-scrollbar {
     width: 12px; /* 寬度 */
 }
@@ -270,9 +258,6 @@ select option {
     background-color: #e0e0e0; /* 滑鼠懸停時的滾動條軌道顏色 */
 }
 
-/* Firefox */
-/* 可以在 Firefox 中使用 scrollbar-color 和 scrollbar-width 屬性，但僅限於 Firefox 64+ 版本 */
-/* 這裡僅提供參考，實際使用時可能需要檢查瀏覽器兼容性 */
 * {
     scrollbar-color: #800080 #f0f0f0;
     scrollbar-width: thin;

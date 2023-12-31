@@ -130,6 +130,35 @@ $(document).ready(function () {
     }
 });
 
+$(document).ready(function() {
+    $("#selectionClass").show();
+    $("#nowSelectionClass").hide();
+    $("#selectionClassButton, #nowSelectionClassButton").click(function() {
+        // 隱藏所有的內容區塊
+        console.log("test");
+
+        // 隱藏所有的 tab
+        // 顯示選擇的內容區塊
+        var target = $(this).attr("id");
+        console.log(target);
+        if(target == "selectionClassButton"){
+            $("#selectionClass").show();
+            $("#nowSelectionClass").hide();
+            $("#selectionClassButton").css('background-color', '#805a94');
+            $("#nowSelectionClassButton").css('background-color', '#ab77c5');
+        }
+        else{
+            $("#selectionClass").hide();
+            $("#nowSelectionClass").show();
+            
+            $("#selectionClassButton").css('background-color', '#ab77c5');
+            $("#nowSelectionClassButton").css('background-color', '#805a94');
+        }
+
+        // 標記選擇的 tab 為 active
+        $(this).addClass("active");
+    });
+});
 function start(){
     
     
