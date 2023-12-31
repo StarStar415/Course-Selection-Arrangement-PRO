@@ -131,6 +131,8 @@ $(document).ready(function () {
 });
 
 function start(){
+    
+    
     document.getElementById("exportButton").addEventListener("click", () => {
         let table = document.getElementById("classTable");
 

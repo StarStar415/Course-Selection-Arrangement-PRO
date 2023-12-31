@@ -289,3 +289,18 @@ select option {
         margin-top: 20px; 
     }
 }
+
+.tab {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #af86c3; /* 使用紫色系 */
+    color: #fff; /* 白色文字 */
+    border-radius: 5px;
+    margin-right: 10px;
+    user-select: none;
+}
+
+.tab:hover {
+    background-color: #ab77c5; /* 滑鼠懸停時的背景色 */
+}

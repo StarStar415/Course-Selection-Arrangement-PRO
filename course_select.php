@@ -137,7 +137,14 @@
                 </span>                
             </div>
         <br>
+            <div>
+                <span class="tab" id="selectionClassButton">查詢結果</span>
+                <span class="tab" id="nowSelectionClassButton">目前課表</span>
+
+            </div>
             <div id="selectionClass">
+            </div>
+            <div id="nowSelectionClass">
             </div>
             <br>
             <button id="exportButton">Export to PDF</button>
