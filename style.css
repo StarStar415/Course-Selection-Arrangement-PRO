@@ -13,6 +13,41 @@ h1 {
     margin: 0; /* 清除預設的外邊距 */
 }
 
+input[type="checkbox"] {
+    appearance: none; /* 重置樣式 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    width: 20px; /* Checkbox 寬度 */
+    height: 20px; /* Checkbox 高度 */
+    background-color: #be96d3; /* 紫色系背景色 */
+    border: 1px solid #ad89c0; /* 紫色系邊框色 */
+    border-radius: 4px; /* 圓角 */
+    transition: background-color 0.3s ease;
+    display: flex; /* 使用 Flex 布局 */
+    align-items: center; /* 垂直置中 */
+}
+
+/* Checkbox 標記（打勾部分）的樣式 */
+input[type="checkbox"]:checked::before {
+    content: '\2713'; /* Unicode 打勾符號 */
+    font-size: 16px; /* 打勾符號大小 */
+    color: #fff; /* 打勾符號顏色 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 鼠標懸停時的樣式 */
+input[type="checkbox"]:hover {
+    background-color: #aa83bf; /* 紫色系懸停時背景色 */
+    border: 1px solid #ad89c0; /* 紫色系懸停時邊框色 */
+}
+
+
 #left {
     width: 50%;
     padding-left: 20px;
@@ -61,10 +96,10 @@ h2{
     font-size: 30px;
 }
 
-input[type=checkbox] {
+/* input[type=checkbox] {
     display: inline-block;
     margin-right: 5px;
-}
+} */
 
 label {
     display: block;

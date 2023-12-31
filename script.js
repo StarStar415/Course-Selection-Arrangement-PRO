@@ -107,12 +107,12 @@ $(document).ready(function () {
         
 
         function displayResults(response) {
-            var tableHTML = '<table id ="nowCourse" border="1"><thead><tr><th style="width: 50px;">選擇</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
+            var tableHTML = '<table id ="nowCourse" border="1"><thead><tr><th style="width: 35px;">選擇</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
             var courseData = JSON.parse(response);
             console.log(courseData);
             for (var i = 0; i < courseData.length; i++) {
                 tableHTML += '<tr>';
-                tableHTML += '<label><td style="width: 50px;"><input type="checkbox" name="selectedCourses[]" value="' + courseData[i].Course_ID + '"></td></label>';
+                tableHTML += '<label><td style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' + courseData[i].Course_ID + '"></td></label>';
                 tableHTML += '<td>' + courseData[i].Course_ID + '</td>';
                 tableHTML += '<td>' + courseData[i].Course_Name + '</td>';
                 tableHTML += '<td>' + courseData[i].Dept_Name + '</td>';
