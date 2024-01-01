@@ -33,7 +33,7 @@
                     </select>
 
                 </span>
-                <span id="department">系所：
+                <span id="department" style="width: 550px;line-height: 4">系所：
                     <select name="options" id="dept_select">
                         <?php
                         //--------這裡記得要改成自己的--------
@@ -78,16 +78,16 @@
                         <option value="4">四年級</option>
                     </select>
                 </span>
-                <span id="course" style="width: 550px;line-height: 3">課名：
-                    <input type="text" name="course_name" id="course_name" style="width: 400px">
+                <span id="course" style="width: 550px;line-height: 4">課名：
+                    <input type="text" name="course_name" id="course_name" style="width: 400px;height: 38px">
                 </span>
-                <span id="course_id" style="width: 550px;line-height: 3">課號：
-                    <input type="text" name="course_id_in" id="course_id_in"style="width: 400px">
+                <span id="course_id" style="width: 550px;line-height: 4">課號：
+                    <input type="text" name="course_id_in" id="course_id_in" style="width: 400px;height: 38px">
                 </span>
-                <span id="teacher" style="width: 550px;line-height: 3">老師：
-                    <input type="text" name="teacher_name" id="teacher_name" style="width: 400px">
+                <span id="teacher" style="width: 550px;line-height: 4">老師：
+                    <input type="text" name="teacher_name" id="teacher_name" style="width: 400px;height: 38px">
                 </span>
-                <span id="time" style="width: 550px;line-height: 3">時間：
+                <span id="time" style="width: 550px;line-height: 4">時間：
                     <select name="options" id="time_options1" style="width: 165px">
                         <option value="1">星期一</option>
                         <option value="2">星期二</option>
@@ -106,7 +106,7 @@
                         ?>
                     </select>
                 </span>
-                <span id="sport" style="width: 550px;line-height: 3">類型：
+                <span id="sport" style="width: 550px;line-height: 4">類型：
                     <select name="options" id="sport_select">
                         <option value="網球">網球</option>
                         <option value="桌球">桌球</option>
@@ -130,7 +130,7 @@
                     </select>
                 </span>
 
-                <span id="generalEducation" style="width: 550px;line-height: 3">類型：
+                <span id="generalEducation" style="width: 550px;line-height: 4">類型：
                     <select name="options" id="generalEducation_select">
                         <option value="(歷史)">歷史</option>
                         <option value="(人格)">人格</option>
