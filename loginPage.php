@@ -30,21 +30,20 @@
             <div class="col">
                 <div class="login-page">
                     <div class="form">
-
-                        <form class="register-form" id="register-form">
+                        <div class="register-form input-form" id="register-form">
                             <input type="text" placeholder="username" id="register-username" />
                             <input type="password" placeholder="password" id="register-password" />
                             <input type="text" placeholder="email" id="register-email" />
                             <button id="register-account-btn">create</button>
                             <p class="message">Already registered? <a href="#" id="registerLoginBtn">Sign In</a></p>
-                        </form>
+                        </div>
 
-                        <form class="login-form" id="login-form">
+                        <div class="login-form input-form" id="login-form">
                             <input type="text" placeholder="username" id="loginUsername" />
                             <input type="password" placeholder="password" id="loginPassword" />
                             <button class="btn" id="loginBtn">login</button>
                             <p class="message">Not registered? <a href="#" id="createButton">Create an account</a></p>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

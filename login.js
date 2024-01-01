@@ -45,6 +45,7 @@ $(document).ready(function () {
     });
   });
 
+  //點擊登入按鈕
   $("#loginBtn").click(function (e) {
     let username = $("#loginUsername").val();
     let password = $("#loginPassword").val();
@@ -74,8 +75,6 @@ $(document).ready(function () {
     });
   });
 });
-
-// window.addEventListener("load", start, false);
 
 //檢查電子郵件格式
 function ValidateEmail(mail) {
