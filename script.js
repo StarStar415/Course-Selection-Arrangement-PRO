@@ -32,6 +32,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
   $("#queryButton").click(function () {
     queryCourses();
   });
@@ -156,14 +157,14 @@ $(document).ready(function () {
         },
 
         success: function (response) {
-          displayResults(response);
+          displayResults2(response);
         },
         error: function (error) {
           console.error("Error:", error);
         },
       });
 
-      function displayResults(response) {
+      function displayResults2(response) {
       var tableHTML =
           '<table id ="nowCourse" border="1"><thead><tr><th style="width: 35px;">刪除</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>學分   </th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
       var courseData = JSON.parse(response);
