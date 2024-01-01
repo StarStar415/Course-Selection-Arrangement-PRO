@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // 將事件監聽器附加到 checkbox 上
-    $('#selectionClass').on('change', 'input[type="checkbox"]', function () {
-        
+    $('#selectionClass, #nowSelectionClass').on('change', 'input[type="checkbox"]', function () {
+        console.log("ouo");
         var currentRow = $(this).closest('tr');
         var Course_ID = currentRow.find('td:eq(1)').text(); 
         var Course_Name = currentRow.find('td:eq(2)').text(); 
@@ -14,7 +14,6 @@ $(document).ready(function () {
         var User_Name = $('#user_name').text();
         if ($(this).is(':checked')) {
             // 將資料寫入 db
-            console.log("insert");
             console.log(currentRow);
 
             $.ajax({
@@ -32,7 +31,7 @@ $(document).ready(function () {
                 User_Name: User_Name
             },
             success: function (response) {
-                console.log(response);
+                updateTable();
             },
             error: function (error) {
                 console.error('錯誤：', error);
@@ -48,7 +47,6 @@ $(document).ready(function () {
         }
         else{
             // 將資料刪除 db
-            console.log("delete");
             console.log(currentRow);
             $.ajax({
             type: 'POST',
@@ -59,7 +57,7 @@ $(document).ready(function () {
                 User_Name: User_Name
             },
             success: function (response) {
-                console.log(response);
+                updateTable();
             },
             error: function (error) {
                 console.error('錯誤：', error);
@@ -72,21 +70,23 @@ $(document).ready(function () {
                 $("#" + Course_ID+Grade).text("");
             }
         }
-
-        $.ajax({
-            type: "POST",
-            url: "select_class_output.php",
-            data: {
-                User_Name: User_Name
-            },
-    
-            success: function (response) {
-              displayResults(response);
-            },
-            error: function (error) {
-              console.error("Error:", error);
-            },
-          });
+        function updateTable(){
+            $.ajax({
+                type: "POST",
+                url: "select_class_output.php",
+                data: {
+                    User_Name: User_Name
+                },
+        
+                success: function (response) {
+                  displayResults(response);
+                },
+                error: function (error) {
+                  console.error("Error:", error);
+                },
+              });
+        }
+        
 
         function displayResults(response) {
         var tableHTML =
@@ -97,7 +97,7 @@ $(document).ready(function () {
             tableHTML +=
             '<label><td style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
             courseData[i].Course_ID +
-            '"></td></label>';
+            '" checked></td></label>';
             tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
             tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
             tableHTML += "<td>" + courseData[i].Dept_Name + "</td>";
