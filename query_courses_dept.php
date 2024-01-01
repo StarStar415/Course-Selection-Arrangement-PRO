@@ -3,7 +3,7 @@
 
 
 $user = 'root';
-$password = 'D223084117980141';
+$password = '01057132';
 
 try {
     $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
@@ -24,7 +24,7 @@ try {
     // Fetch the results
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Output the results (you can format this as needed)
+    // Output the results 
     echo json_encode($results);
 
     $db = null;

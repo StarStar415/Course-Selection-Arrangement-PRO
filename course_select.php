@@ -8,13 +8,23 @@
     </style>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="script.js"></script>
+    <script src="select_script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 
 <body>
+    <?php
 
-    <h1>學途~啟航!</h1>
+    // 檢查是否已經設定了用戶名
+    if(isset($_SESSION['username'])) {
+        $currentUsername = $_SESSION['username'];
 
+        echo '<h1>學途~啟航!<span id="user_block"><span id="user_img" ><img src="img/user.png" alt="User"></span><br/><span id="user_name"> ' . $currentUsername . '</span></span></h1>';
+    } else {
+        echo '<h1>學途~啟航!</h1>';
+    }
+    ?>
+    <input type="checkbox" id="checkbox" name="checkbox">
 
 
     <div id="container">
@@ -38,7 +48,7 @@
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = 'D223084117980141';
+                        $password = '01057132';
                         //--------------------------------
                         try {
                             //--------這裡記得要改成自己的--------

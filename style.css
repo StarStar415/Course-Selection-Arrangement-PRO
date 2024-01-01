@@ -14,6 +14,18 @@ h1 {
   margin: 0; /* 清除預設的外邊距 */
 }
 
+#user_block{
+  float: right;
+  padding: 0 10px; 
+  font-size: 20px;
+}
+
+span img {
+  width: 42px; /* 調整圖片的寬度，根據需要修改 */
+  height: 42px; /* 調整圖片的高度，根據需要修改 */
+  margin-right: 8px; /* 可以根據需要調整圖片和文字之間的間距 */
+}
+
 input[type="checkbox"] {
   appearance: none; /* 重置樣式 */
   -webkit-appearance: none;
@@ -29,6 +41,7 @@ input[type="checkbox"] {
   transition: background-color 0.3s ease;
   display: flex; /* 使用 Flex 布局 */
   align-items: center; /* 垂直置中 */
+  margin: 0 auto;
 }
 
 input[type="checkbox"]:checked::before {
@@ -295,3 +308,4 @@ select option {
 .tab:hover {
   background-color: #ab77c5; /* 滑鼠懸停時的背景色 */
 }
+
