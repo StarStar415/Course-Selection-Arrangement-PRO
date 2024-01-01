@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // 將事件監聽器附加到 checkbox 上
-    $('#selectionClass').on('change', 'input[type="checkbox"]', function () {
-        
+    $('#selectionClass, #nowSelectionClass').on('change', 'input[type="checkbox"]', function () {
+        console.log("ouo");
         var currentRow = $(this).closest('tr');
         var Course_ID = currentRow.find('td:eq(1)').text(); 
         var Course_Name = currentRow.find('td:eq(2)').text(); 
@@ -97,7 +97,7 @@ $(document).ready(function () {
             tableHTML +=
             '<label><td style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
             courseData[i].Course_ID +
-            '"></td></label>';
+            '" checked></td></label>';
             tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
             tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
             tableHTML += "<td>" + courseData[i].Dept_Name + "</td>";
