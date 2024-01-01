@@ -135,6 +135,7 @@ select option {
 body {
   font-family: "cwTeXYen", "Comfortaa", sans-serif;
   font-size: 20px;
+  user-select: none;
 }
 
 #timeoptions {

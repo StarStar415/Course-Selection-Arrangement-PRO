@@ -19,6 +19,7 @@ $(document).ready(function () {
         $("#nowSelectionClassButton").css("background-color", "#ab77c5");
         $("#favorSelectionClassButton").css("background-color", "#ab77c5");
       } else if (target == "nowSelectionClassButton"){
+        console.log("nowSelectionClass");
         $("#selectionClass").hide();
         $("#nowSelectionClass").show();
         $("#favorSelectionClass").hide();
@@ -51,7 +52,7 @@ $(document).ready(function () {
             tableHTML +=
             '<label><td style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
             courseData[i].Course_ID +
-            '"></td></label>';
+            '" checked></td></label>';
             tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
             tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
             tableHTML += "<td>" + courseData[i].Dept_Name + "</td>";

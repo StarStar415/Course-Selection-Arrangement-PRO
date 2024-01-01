@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  
   $("#course, #teacher, #time ,#course_id, #sport,#generalEducation").hide();
   $("#department").show();
   // 監聽選擇框變化事件
@@ -33,7 +34,7 @@ $(document).ready(function () {
 
 // 進行查詢
 $(document).ready(function () {
-
+  var User_Name = $('#user_name').text();
   $("#queryButton").click(function () {
     queryCourses();
   });
@@ -79,6 +80,7 @@ $(document).ready(function () {
           queryType: queryType,
           queryValue: queryValue,
           queryGrade: queryGrade,
+          User_Name: User_Name
         },
 
         success: function (response) {
@@ -89,12 +91,35 @@ $(document).ready(function () {
         },
       });
     } else {
+      $("#selectionClass").html("");
+      $.ajax({
+        type: "POST",
+        url: "query_courses_user.php",
+        data: { 
+          queryType: queryType, 
+          queryValue: queryValue ,
+          User_Name: User_Name
+        },
+
+        success: function (response) {
+          console.log(response);
+          displayResultsCheck (response);
+        },
+        error: function (error) {
+          console.error("Error:", error);
+        },
+      });
       $.ajax({
         type: "POST",
         url: "query_courses.php",
-        data: { queryType: queryType, queryValue: queryValue },
+        data: { 
+          queryType: queryType, 
+          queryValue: queryValue ,
+          User_Name: User_Name
+        },
 
         success: function (response) {
+          console.log(response);
           displayResults(response);
         },
         error: function (error) {
@@ -127,7 +152,34 @@ $(document).ready(function () {
 
       tableHTML += "</tbody></table>";
 
-      $("#selectionClass").html(tableHTML);
+      $("#selectionClass").append(tableHTML);
+    }
+
+    function displayResultsCheck(response) {
+      var tableHTML =
+        '<table id ="nowCourse" border="1"><thead><tr><th style="width: 35px;">選擇</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>學分</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
+      var courseData = JSON.parse(response);
+      for (var i = 0; i < courseData.length; i++) {
+        tableHTML += "<tr>";
+        tableHTML +=
+          '<label><td style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
+          courseData[i].Course_ID +
+          '" checked></td></label>';
+        tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
+        tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
+        tableHTML += "<td>" + courseData[i].Dept_Name + "</td>";
+        tableHTML += "<td>" + courseData[i].Grade + "</td>";
+        tableHTML += "<td>" + courseData[i].Teacher_Name + "</td>";
+        
+        tableHTML += "<td>" + courseData[i].Credit + "</td>";
+        tableHTML += "<td>" + courseData[i].Class_Type + "</td>";
+        tableHTML += "<td>" + courseData[i].Time + "</td>";
+        tableHTML += "</tr>";
+      }
+
+      tableHTML += "</tbody></table>";
+
+      $("#selectionClass").append(tableHTML);
     }
   }
 });
