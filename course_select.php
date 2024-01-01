@@ -20,9 +20,9 @@
     <div id="container">
         <div id="left">
             <h2>選課</h2>
-            <div id=select_type>
-                <span id="query">想要查詢：
-                    <select name="options" id="options">
+            <div id=select_type width=500 style="width: 600px">
+                <span id="query">查詢：
+                    <select name="options" id="options" style="width: 400px">
                         <option value="Dept_Name" selected>系所</option>
                         <option value="Course_Name">課程名稱</option>
                         <option value="Course_ID">課號</option>
@@ -31,17 +31,18 @@
                         <option value="Sport">體育</option>
                         <option value="GeneralEducation">通識</option>
                     </select>
+
                 </span>
                 <span id="department">系所：
                     <select name="options" id="dept_select">
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = '123';
+                        $password = 'D223084117980141';
                         //--------------------------------
                         try {
                             //--------這裡記得要改成自己的--------
-                            $db = new PDO('mysql:host=localhost;dbname=databaseproject;charset=utf8;port=3307', $user, $password);
+                            $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
                             //--------------------------------
 
                             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -67,9 +68,9 @@
                             print "ERROR!:" . $e->getMessage();
                             die();
                         }
-                        ?>
-                    </select>
-                    <select name="options" id="grade_select">
+                    ?>
+                </select>
+                <select name="options" id="grade_select" width=100 style="width: 100px">
                         <option value="all">全部</option>
                         <option value="1">一年級</option>
                         <option value="2">二年級</option>
@@ -77,17 +78,17 @@
                         <option value="4">四年級</option>
                     </select>
                 </span>
-                <span id="course">課名：
-                    <input type="text" name="course_name" id="course_name">
+                <span id="course" style="width: 550px;line-height: 3">課名：
+                    <input type="text" name="course_name" id="course_name" style="width: 400px">
                 </span>
-                <span id="course_id">課號：
-                    <input type="text" name="course_id_in" id="course_id_in">
+                <span id="course_id" style="width: 550px;line-height: 3">課號：
+                    <input type="text" name="course_id_in" id="course_id_in"style="width: 400px">
                 </span>
-                <span id="teacher">老師：
-                    <input type="text" name="teacher_name" id="teacher_name">
+                <span id="teacher" style="width: 550px;line-height: 3">老師：
+                    <input type="text" name="teacher_name" id="teacher_name" style="width: 400px">
                 </span>
-                <span id="time">時間：
-                    <select name="options" id="time_options1">
+                <span id="time" style="width: 550px;line-height: 3">時間：
+                    <select name="options" id="time_options1" style="width: 165px">
                         <option value="1">星期一</option>
                         <option value="2">星期二</option>
                         <option value="3">星期三</option>
@@ -97,7 +98,7 @@
                         <option value="7">星期日</option>
                     </select>
 
-                    <select name="options" id="time_options2">
+                    <select name="options" id="time_options2" style="width: 165px">
                         <?php
                         for ($i = 1; $i <= 14; $i++) {
                             echo "<option value='{$i}'>第{$i}節</option>";
@@ -105,7 +106,7 @@
                         ?>
                     </select>
                 </span>
-                <span id="sport">類型：
+                <span id="sport" style="width: 550px;line-height: 3">類型：
                     <select name="options" id="sport_select">
                         <option value="網球">網球</option>
                         <option value="桌球">桌球</option>
@@ -129,7 +130,7 @@
                     </select>
                 </span>
 
-                <span id="generalEducation">類型：
+                <span id="generalEducation" style="width: 550px;line-height: 3">類型：
                     <select name="options" id="generalEducation_select">
                         <option value="(歷史)">歷史</option>
                         <option value="(人格)">人格</option>
@@ -145,9 +146,10 @@
                         <option value="【社會脈動】">社會脈動</option>
                     </select>
                 </span>
-                <span id="submit">
-                    <button id="queryButton" class="btn">查詢</button>
-                </span>
+                <br>
+                <span id="submit" style="display: flex;justify-content: center;">
+                    <button id="queryButton" class="btn" style="width: 400" >查詢</button>
+                </span>                
             </div>
             <br>
             <div>
