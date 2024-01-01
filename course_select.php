@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="script.js"></script>
     <script src="select_script.js"></script>
+    <script src="show_table_script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 
@@ -163,14 +164,17 @@
             <div>
                 <span class="tab" id="selectionClassButton">查詢結果</span>
                 <span class="tab" id="nowSelectionClassButton">目前課表</span>
-
+                <span class="tab" id="favorSelectionClassButton">最愛課程</span>
             </div>
             <div id="selectionClass">
             </div>
             <div id="nowSelectionClass">
             </div>
-            <br>
-            <button id="exportButton">Export to PDF</button>
+            <span id="functionButton">
+                <button id="exportButton">Export to PDF</button>
+                <button id="emailButton">Send to Email</button> 
+            </span>
+            
         </div>
 
         <div id="right">
