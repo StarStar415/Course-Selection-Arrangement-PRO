@@ -163,7 +163,7 @@
             <div>
                 <span class="tab" id="selectionClassButton">查詢結果</span>
                 <span class="tab" id="nowSelectionClassButton">目前課表</span>
-
+                <span class="tab" id="favorSelectionClassButton">最愛課程</span>
             </div>
             <div id="selectionClass">
             </div>
