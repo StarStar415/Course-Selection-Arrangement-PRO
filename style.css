@@ -197,6 +197,18 @@ select option {
   box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
+#logoutButton {
+  width: 60px;
+  padding: 8px; 
+  font-size: 16px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  outline: none; 
+  cursor: pointer; 
+  background-color: #af86c3;
+  color: #fff;
+}
+
 #queryButton {
     width: 80px; /* Set the width */
     padding: 8px; /* Set the padding */
