@@ -1,161 +1,159 @@
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Lobster&display=swap");
+
 #container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 h1 {
-    text-align: center; /* 文字置中 */
-    padding: 20px; /* 上下左右留白 */
-    background-color: #9f93c6; /* 紫色系背景色 */
-    color: #fff; /* 文字顏色 */
-    margin: 0; /* 清除預設的外邊距 */
+  text-align: center; /* 文字置中 */
+  padding: 20px; /* 上下左右留白 */
+  background-color: #9f93c6; /* 紫色系背景色 */
+  color: #fff; /* 文字顏色 */
+  margin: 0; /* 清除預設的外邊距 */
 }
 
 input[type="checkbox"] {
-    appearance: none; /* 重置樣式 */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    width: 20px; /* Checkbox 寬度 */
-    height: 20px; /* Checkbox 高度 */
-    background-color: #be96d3; /* 紫色系背景色 */
-    border: 1px solid #ad89c0; /* 紫色系邊框色 */
-    border-radius: 4px; /* 圓角 */
-    transition: background-color 0.3s ease;
-    display: flex; /* 使用 Flex 布局 */
-    align-items: center; /* 垂直置中 */
+  appearance: none; /* 重置樣式 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  width: 20px; /* Checkbox 寬度 */
+  height: 20px; /* Checkbox 高度 */
+  background-color: #be96d3; /* 紫色系背景色 */
+  border: 1px solid #ad89c0; /* 紫色系邊框色 */
+  border-radius: 4px; /* 圓角 */
+  transition: background-color 0.3s ease;
+  display: flex; /* 使用 Flex 布局 */
+  align-items: center; /* 垂直置中 */
 }
 
 input[type="checkbox"]:checked::before {
-    content: '\2713'; /* Unicode 打勾符號 */
-    font-size: 16px; /* 打勾符號大小 */
-    color: #fff; /* 打勾符號顏色 */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  content: "\2713"; /* Unicode 打勾符號 */
+  font-size: 16px; /* 打勾符號大小 */
+  color: #fff; /* 打勾符號顏色 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 input[type="checkbox"]:hover {
-    background-color: #aa83bf; /* 紫色系懸停時背景色 */
-    border: 1px solid #ad89c0; /* 紫色系懸停時邊框色 */
+  background-color: #aa83bf; /* 紫色系懸停時背景色 */
+  border: 1px solid #ad89c0; /* 紫色系懸停時邊框色 */
 }
 
-
 #left {
-    width: 50%;
-    padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 50%;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #right {
-    flex: 1;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 td {
-    width: 100px;
-    height: 60px;
-    border: 1px solid black;
-    text-align: center;
+  width: 100px;
+  height: 60px;
+  border: 1px solid black;
+  text-align: center;
 }
 
-h1{
-    text-align: center;
-    font-size: 50px;
+h1 {
+  text-align: center;
+  font-size: 50px;
 }
-#exportButton{
-    background-color: rgb(255, 255, 255);
-    border: 3px solid rgb(6, 22, 17);
-    font-size: 150%;
-    width: 100%;
-    border-radius: 5px;
-    height: 50px;
+#exportButton {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid rgb(6, 22, 17);
+  font-size: 150%;
+  width: 100%;
+  border-radius: 5px;
+  height: 50px;
 }
-#exportButton:hover{
-    background-color: #bd99d2;
+#exportButton:hover {
+  background-color: #bd99d2;
 }
-h2{
-    text-align: center;
-    font-size: 30px;
+h2 {
+  text-align: center;
+  font-size: 30px;
 }
 
 label {
-    display: block;
-}    
-#choose{
-    font-size: 30px;
+  display: block;
 }
-select{
-    font-size: 70%;
-    bottom: 120px;
-    border-radius:5px;
-    width: 150px;
-    border: solid #d8bae9;
-
+#choose {
+  font-size: 30px;
 }
-select option{
-    bottom: 120px;
-    width: 150px;
+select {
+  font-size: 70%;
+  bottom: 120px;
+  border-radius: 5px;
+  width: 150px;
+  border: solid #d8bae9;
 }
-body{
-    font-family: 'cwTeXYen','Comfortaa', sans-serif;
-    font-size: 20px;
+select option {
+  bottom: 120px;
+  width: 150px;
+}
+body {
+  font-family: "cwTeXYen", "Comfortaa", sans-serif;
+  font-size: 20px;
 }
 
 #timeoptions {
-    width: 100px; /* 設定選單寬度 */
-    
+  width: 100px; /* 設定選單寬度 */
 }
 
 select {
-    width: 200px; /* 設定選單寬度 */
-    padding: 8px; /* 設定內邊距 */
-    font-size: 16px; /* 設定字型大小 */
-    border: 1px solid #ccc; /* 設定邊框 */
-    border-radius: 4px; /* 設定圓角 */
-    outline: none; /* 去除點擊時的外框 */
+  width: 200px; /* 設定選單寬度 */
+  padding: 8px; /* 設定內邊距 */
+  font-size: 16px; /* 設定字型大小 */
+  border: 1px solid #ccc; /* 設定邊框 */
+  border-radius: 4px; /* 設定圓角 */
+  outline: none; /* 去除點擊時的外框 */
 }
 
 select:focus {
-    border-color: #bd99d2; /* 修改邊框顏色 */
-    box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
+  border-color: #bd99d2; /* 修改邊框顏色 */
+  box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
 select:hover {
-    background-color: #ddcde7; /* 修改背景顏色 */
-    color: #fff; /* 修改文字顏色 */
+  background-color: #ddcde7; /* 修改背景顏色 */
+  color: #fff; /* 修改文字顏色 */
 }
 
 select option {
-    padding: 8px; /* 設定內邊距 */
-    font-size: 14px; /* 設定字型大小 */
-    background-color: #fff; /* 設定背景顏色 */
-    color: #333; /* 設定文字顏色 */
+  padding: 8px; /* 設定內邊距 */
+  font-size: 14px; /* 設定字型大小 */
+  background-color: #fff; /* 設定背景顏色 */
+  color: #333; /* 設定文字顏色 */
 }
 
 #options option:checked {
-    background-color: #ddcde7; /* 修改背景顏色 */
-    color: #fff; /* 修改文字顏色 */
-}   
+  background-color: #ddcde7; /* 修改背景顏色 */
+  color: #fff; /* 修改文字顏色 */
+}
 
 #select_type {
-    display: flex;
-    align-items: center; /* 垂直居中 */
+  display: flex;
+  align-items: center; /* 垂直居中 */
 }
 
 #department,
@@ -166,126 +164,129 @@ select option {
 #generalEducation,
 #teacher,
 #time {
-    display: inline-block;
-    margin-right: 30px; /* 調整兩者之間的間距 */
+  display: inline-block;
+  margin-right: 30px; /* 調整兩者之間的間距 */
 }
 
-#course_name,#teacher_name,#course_id_in{ 
-    width: 200px; /* 設定文字框寬度 */
-    padding: 8px; /* 設定內邊距 */
-    font-size: 16px; /* 設定字型大小 */
-    border: 1px solid #ccc; /* 設定邊框 */
-    border-radius: 4px; /* 設定圓角 */
-    outline: none; /* 去除點擊時的外框 */
+#course_name,
+#teacher_name,
+#course_id_in {
+  width: 200px; /* 設定文字框寬度 */
+  padding: 8px; /* 設定內邊距 */
+  font-size: 16px; /* 設定字型大小 */
+  border: 1px solid #ccc; /* 設定邊框 */
+  border-radius: 4px; /* 設定圓角 */
+  outline: none; /* 去除點擊時的外框 */
 }
 
-#course_name:focus,#teacher_name:focus #course_id_in:focus{
-    border-color: #bd99d2; /* 修改邊框顏色 */
-    box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
+#course_name:focus,
+#teacher_name:focus #course_id_in:focus {
+  border-color: #bd99d2; /* 修改邊框顏色 */
+  box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
 #queryButton {
-    width: 80px; /* Set the width */
-    padding: 8px; /* Set the padding */
-    font-size: 16px; /* Set the font size */
-    border: 1px solid #ccc; /* Set the border */
-    border-radius: 4px; /* Set the border-radius */
-    outline: none; /* Remove the outline on focus */
-    cursor: pointer; /* Add a pointer cursor */
-    background-color: #fff; /* Set the background color */
+  width: 80px; /* Set the width */
+  padding: 8px; /* Set the padding */
+  font-size: 16px; /* Set the font size */
+  border: 1px solid #ccc; /* Set the border */
+  border-radius: 4px; /* Set the border-radius */
+  outline: none; /* Remove the outline on focus */
+  cursor: pointer; /* Add a pointer cursor */
+  background-color: #fff; /* Set the background color */
 }
 
 #queryButton:hover {
-    background-color: #ddcde7; /* 修改背景顏色 */
-    color: #fff; /* 修改文字顏色 */
+  background-color: #ddcde7; /* 修改背景顏色 */
+  color: #fff; /* 修改文字顏色 */
 }
 
 #queryButton:focus {
-    border-color: #bd99d2; /* 修改邊框顏色 */
-    box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
+  border-color: #bd99d2; /* 修改邊框顏色 */
+  box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
-#selectionClass, 
+#selectionClass,
 #nowSelectionClass {
-    width: 100%;
-    height: 600px; /* Set the height to 400px */
-    border: 5px solid #af86c3;
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: #e6e6fa; /* Set a light purple background color */
-    overflow: auto;
+  width: 100%;
+  height: 600px; /* Set the height to 400px */
+  border: 5px solid #af86c3;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #e6e6fa; /* Set a light purple background color */
+  overflow: auto;
 }
 
-
-#nowCourse{
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-    background-color: #f2f2f2;
+#nowCourse {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
 }
-#nowCourse th{
-    font-size: 20px;
+#nowCourse th {
+  font-size: 20px;
 }
-#nowCourse th, #nowCourse td {
-    border: 1px solid #dfaff5;
-    padding: 8px;
-    text-align: left;
-    background-color: #e6e6fa;
+#nowCourse th,
+#nowCourse td {
+  border: 1px solid #dfaff5;
+  padding: 8px;
+  text-align: left;
+  background-color: #e6e6fa;
 }
 
 ::-webkit-scrollbar {
-    width: 12px; /* 寬度 */
+  width: 12px; /* 寬度 */
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #af86c3; /* 滾動條顏色 */
-    border-radius: 2px; /* 圓角 */
+  background-color: #af86c3; /* 滾動條顏色 */
+  border-radius: 2px; /* 圓角 */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #af86c3; /* 滑鼠懸停時的滾動條顏色 */
+  background-color: #af86c3; /* 滑鼠懸停時的滾動條顏色 */
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f0f0f0; /* 滾動條軌道顏色 */
+  background-color: #f0f0f0; /* 滾動條軌道顏色 */
 }
 
 ::-webkit-scrollbar-track:hover {
-    background-color: #e0e0e0; /* 滑鼠懸停時的滾動條軌道顏色 */
+  background-color: #e0e0e0; /* 滑鼠懸停時的滾動條軌道顏色 */
 }
 
 * {
-    scrollbar-color: #800080 #f0f0f0;
-    scrollbar-width: thin;
+  scrollbar-color: #800080 #f0f0f0;
+  scrollbar-width: thin;
 }
-@media only screen and (max-width:  1100px) {
-    #container {
-        flex-direction: column; 
-    }
-    #left {
-        width: 100%;
-    }
+@media only screen and (max-width: 1100px) {
+  #container {
+    flex-direction: column;
+  }
+  #left {
+    width: 100%;
+  }
 
-    #right {
-        margin-top: 20px; 
-    }
+  #right {
+    margin-top: 20px;
+  }
 }
 
 .tab {
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #af86c3; /* 使用紫色系 */
-    color: #fff; /* 白色文字 */
-    border-radius: 5px;
-    margin-right: 10px;
-    user-select: none;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #af86c3; /* 使用紫色系 */
+  color: #fff; /* 白色文字 */
+  border-radius: 5px;
+  margin-right: 10px;
+  user-select: none;
 }
 
 .tab:hover {
-    background-color: #ab77c5; /* 滑鼠懸停時的背景色 */
+  background-color: #ab77c5; /* 滑鼠懸停時的背景色 */
 }

@@ -1,15 +1,23 @@
+<?php session_start(); ?>
 <html>
-    <head>
-        <title>Course Select</title>
-        <style type="text/css">
-            @import "style.css";
-        </style>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <h1>學途~啟航!</h1>
-        <div id="container">
+
+<head>
+    <title>Course Select</title>
+    <style type="text/css">
+        @import "style.css";
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h1>學途~啟航!</h1>
+
+
+
+    <div id="container">
         <div id="left">
             <h2>選課</h2>
             <div id=select_type>
@@ -25,21 +33,26 @@
                     </select>
                 </span>
                 <span id="department">系所：
-                <select name="options" id="dept_select">
-                    <?php
+                    <select name="options" id="dept_select">
+                        <?php
+                        //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = '01057132';
-                        try{
-                            $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8',$user,$password);
+                        $password = '123';
+                        //--------------------------------
+                        try {
+                            //--------這裡記得要改成自己的--------
+                            $db = new PDO('mysql:host=localhost;dbname=databaseproject;charset=utf8;port=3307', $user, $password);
+                            //--------------------------------
+
                             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            $db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-                            
+                            $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
                             $query = ("select distinct Dept_Name from class");
                             $stmt = $db->prepare($query);
                             $stmt->execute();
                             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             $rowCount = $stmt->rowCount();
-                            
+
                             if ($rowCount > 0) {
                                 foreach ($result as $row) {
                                     echo "<option value='{$row["Dept_Name"]}'>{$row["Dept_Name"]}</option>";
@@ -47,16 +60,16 @@
                             } else {
                                 echo "<option value=''>No options available</option>";
                             }
-                            
+
                             $db = null;
-                        }catch(PDOException $e){
-                            
-                            Print "ERROR!:". $e->getMessage();
+                        } catch (PDOException $e) {
+
+                            print "ERROR!:" . $e->getMessage();
                             die();
                         }
-                    ?>
-                </select>
-                <select name="options" id="grade_select">
+                        ?>
+                    </select>
+                    <select name="options" id="grade_select">
                         <option value="all">全部</option>
                         <option value="1">一年級</option>
                         <option value="2">二年級</option>
@@ -86,9 +99,9 @@
 
                     <select name="options" id="time_options2">
                         <?php
-                            for ($i = 1; $i <= 14; $i++) {
-                                echo "<option value='{$i}'>第{$i}節</option>";
-                            }
+                        for ($i = 1; $i <= 14; $i++) {
+                            echo "<option value='{$i}'>第{$i}節</option>";
+                        }
                         ?>
                     </select>
                 </span>
@@ -133,10 +146,10 @@
                     </select>
                 </span>
                 <span id="submit">
-                    <button id="queryButton">查詢</button>
-                </span>                
+                    <button id="queryButton" class="btn">查詢</button>
+                </span>
             </div>
-        <br>
+            <br>
             <div>
                 <span class="tab" id="selectionClassButton">查詢結果</span>
                 <span class="tab" id="nowSelectionClassButton">目前課表</span>
@@ -152,15 +165,15 @@
 
         <div id="right">
             <h2>目前課表</h2>
-            <table id = "classTable">
+            <table id="classTable" class="table table-bordered border-secondary table-responsive">
                 <thead>
                     <tr>
-                        <th>時間</th>
-                        <th>星期一</th>
-                        <th>星期二</th>
-                        <th>星期三</th>
-                        <th>星期四</th>
-                        <th>星期五</th>
+                        <th scope="col">時間</th>
+                        <th scope="col">星期一</th>
+                        <th scope="col">星期二</th>
+                        <th scope="col">星期三</th>
+                        <th scope="col">星期四</th>
+                        <th scope="col">星期五</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -168,8 +181,8 @@
                         <td>08:20</td>
                         <td id="101"></td>
                         <td id="201"></td>
-                        <td id="301"></td>
-                        <td id="401"></td>
+                        <td id=" 301"></td>
+                        <td id=" 401"></td>
                         <td id="501"></td>
                     </tr>
                     <tr>
@@ -278,10 +291,11 @@
                     </tr>
                 </tbody>
             </table>
-            
+
         </div>
     </div>
-        
-        
-    </body>
+
+
+</body>
+
 </html>

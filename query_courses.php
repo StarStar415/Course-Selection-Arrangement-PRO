@@ -1,9 +1,10 @@
 <?php
+
 $user = 'root';
-$password = '01057132';
+$password = '123';
 
 try {
-    $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
+    $db = new PDO('mysql:host=localhost;dbname=databaseproject;charset=utf8;port=3307', $user, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
@@ -22,4 +23,3 @@ try {
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
-?>
