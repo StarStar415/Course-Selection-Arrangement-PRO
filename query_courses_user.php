@@ -9,22 +9,17 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-    $courseName = $_POST['queryValue'];
-    $queryType = $_POST['queryType'];
+    $Course_ID = $_POST['Course_ID'];
     $User_Name = $_POST['User_Name'];
 
     $query = "
-        SELECT class.*
+        SELECT *
         FROM user_class
-        INNER JOIN class ON user_class.Course_ID = class.Course_ID
-        WHERE user_class.User_Name = :userName AND class.$queryType LIKE :courseName
-        ORDER BY class.Grade;
+        WHERE User_Name = ? AND Course_ID = ?;
     ";
 
     $stmt = $db->prepare($query);
-    $stmt->bindValue(':userName', $User_Name, PDO::PARAM_STR);
-    $stmt->bindValue(':courseName', '%' . $courseName . '%', PDO::PARAM_STR);
-    $stmt->execute();
+    $stmt->execute(array($User_Name,$Course_ID));
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
