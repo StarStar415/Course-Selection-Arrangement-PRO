@@ -78,7 +78,7 @@ body {
 .login-page {
   width: 360px;
 }
-.form {
+.input-form {
   position: relative;
   z-index: 1;
   background: #ffffff;
@@ -88,7 +88,7 @@ body {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form input {
+.input-form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -99,7 +99,7 @@ body {
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.input-form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -116,20 +116,20 @@ body {
 .container {
   margin-top: 13%;
 }
-.form button:hover,
-.form button:active,
-.form button:focus {
+.input-form button:hover,
+.input-form button:active,
+.input-form button:focus {
   background: #43a047;
 }
-.form .message {
+.input-form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 12px;
 }
-.form .message a {
+.input-form .message a {
   color: #4caf50;
   text-decoration: none;
 }
-.form .register-form {
+.input-form .register-form {
   display: none;
 }

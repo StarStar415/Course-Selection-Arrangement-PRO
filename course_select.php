@@ -38,11 +38,11 @@
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = 'D223084117980141';
+                        $password = '123';
                         //--------------------------------
                         try {
                             //--------這裡記得要改成自己的--------
-                            $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
+                            $db = new PDO('mysql:host=localhost;dbname=databaseproject;charset=utf8;port=3307', $user, $password);
                             //--------------------------------
 
                             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -68,9 +68,9 @@
                             print "ERROR!:" . $e->getMessage();
                             die();
                         }
-                    ?>
-                </select>
-                <select name="options" id="grade_select" width=100 style="width: 100px">
+                        ?>
+                    </select>
+                    <select name="options" id="grade_select" width=100 style="width: 100px">
                         <option value="all">全部</option>
                         <option value="1">一年級</option>
                         <option value="2">二年級</option>
@@ -148,8 +148,8 @@
                 </span>
                 <br>
                 <span id="submit" style="display: flex;justify-content: center;">
-                    <button id="queryButton" class="btn" style="width: 400" >查詢</button>
-                </span>                
+                    <button id="queryButton" class="btn" style="width: 400">查詢</button>
+                </span>
             </div>
             <br>
             <div>
