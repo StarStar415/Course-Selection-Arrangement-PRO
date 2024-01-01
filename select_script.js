@@ -13,6 +13,7 @@ $(document).ready(function () {
         var Time = currentRow.find('td:eq(8)').text();
         var User_Name = $('#user_name').text();
         if ($(this).is(':checked')) {
+            // 將資料寫入 db
             console.log("insert");
             console.log(currentRow);
 
@@ -37,8 +38,16 @@ $(document).ready(function () {
                 console.error('錯誤：', error);
             }
             });
+            
+            var timeArray = Time.split(',');
+            console.log(timeArray);
+            for(var i = 0; i < timeArray.length; i++){
+                $("#" + timeArray[i]).append('<span id="'+Course_ID+Grade+'">' + Course_ID + "\n" + Course_Name + "\n" + Teacher_Name + '</span>');
+            }
+            
         }
         else{
+            // 將資料刪除 db
             console.log("delete");
             console.log(currentRow);
             $.ajax({
@@ -56,6 +65,12 @@ $(document).ready(function () {
                 console.error('錯誤：', error);
             }
             });
+            // 刪除右方課表
+            var timeArray = Time.split(',');
+            console.log(timeArray);
+            for(var i = 0; i < timeArray.length; i++){
+                $("#" + Course_ID+Grade).text("");
+            }
         }
 
         $.ajax({
