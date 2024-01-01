@@ -15,7 +15,6 @@
 <body>
     <?php
 
-    // 檢查是否已經設定了用戶名
     if(isset($_SESSION['username'])) {
         $currentUsername = $_SESSION['username'];
 
@@ -24,6 +23,7 @@
         echo '<h1>學途~啟航!</h1>';
     }
     ?>
+
 
     <div id="container">
         <div id="left">

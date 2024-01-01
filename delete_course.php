@@ -12,7 +12,6 @@ try {
     $User_Name = $_POST['User_Name'];
     $Grade = $_POST['Grade'];
 
-    // 使用 DELETE 查詢來刪除資料
     $query = "DELETE FROM user_class WHERE Course_ID = ? AND User_Name = ? AND Grade =?";
     $stmt = $db->prepare($query);
 
