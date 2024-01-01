@@ -38,11 +38,11 @@
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = '123';
+                        $password = 'D223084117980141';
                         //--------------------------------
                         try {
                             //--------這裡記得要改成自己的--------
-                            $db = new PDO('mysql:host=localhost;dbname=databaseproject;charset=utf8;port=3307', $user, $password);
+                            $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
                             //--------------------------------
 
                             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

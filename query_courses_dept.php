@@ -3,10 +3,10 @@
 
 
 $user = 'root';
-$password = '123';
+$password = 'D223084117980141';
 
 try {
-    $db = new PDO('mysql:host=localhost;dbname=databaseproject;charset=utf8;port=3307', $user, $password);
+    $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
