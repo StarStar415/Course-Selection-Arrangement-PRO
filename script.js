@@ -31,6 +31,7 @@ $(document).ready(function () {
   });
 });
 
+// 進行查詢
 $(document).ready(function () {
 
   $("#queryButton").click(function () {
@@ -61,6 +62,11 @@ $(document).ready(function () {
     } else if (queryType === "GeneralEducation") {
       queryType = "Course_Name";
       queryValue = $("#generalEducation_select").val();
+    }
+    console.log(queryValue);
+    if(queryValue == undefined || queryValue == null || queryValue == ""){
+      alert("輸入不可為空!!");
+      return;
     }
     if (queryType == "Dept_Name") {
       if (queryGrade == "all") {
@@ -126,16 +132,14 @@ $(document).ready(function () {
   }
 });
 
+// 控制現在顯示查詢課表還是最愛等等的表格
 $(document).ready(function () {
   var User_Name = $('#user_name').text();
   $("#selectionClass").show();
   $("#selectionClassButton").css("background-color", "#805a94");
   $("#nowSelectionClass").hide();
   $("#selectionClassButton, #nowSelectionClassButton").click(function () {
-    // 隱藏所有的內容區塊
 
-    // 隱藏所有的 tab
-    // 顯示選擇的內容區塊
     var target = $(this).attr("id");
     if (target == "selectionClassButton") {
       $("#selectionClass").show();
@@ -194,7 +198,7 @@ $(document).ready(function () {
   });
 });
 
-
+// export PDF
 function start() {
   document.getElementById("exportButton").addEventListener("click", () => {
     let table = document.getElementById("classTable");
