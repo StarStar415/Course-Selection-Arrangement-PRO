@@ -20,7 +20,7 @@
     <div id="container">
         <div id="left">
             <h2>選課</h2>
-            <div id=select_type width=500 style="width: 600px">
+            <div id=select_type width=500 style="width: 500px">
                 <span id="query">查詢：
                     <select name="options" id="options" style="width: 400px">
                         <option value="Dept_Name" selected>系所</option>
