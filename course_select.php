@@ -169,8 +169,11 @@
             </div>
             <div id="nowSelectionClass">
             </div>
-            <br>
-            <button id="exportButton">Export to PDF</button>
+            <span id="functionButton">
+                <button id="exportButton">Export to PDF</button>
+                <button id="emailButton">Send to Email</button> 
+            </span>
+            
         </div>
 
         <div id="right">
