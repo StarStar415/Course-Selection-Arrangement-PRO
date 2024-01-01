@@ -135,6 +135,7 @@ select option {
 body {
   font-family: "cwTeXYen", "Comfortaa", sans-serif;
   font-size: 20px;
+  user-select: none;
 }
 
 #timeoptions {
@@ -244,7 +245,8 @@ select option {
 }
 
 #selectionClass, 
-#nowSelectionClass {
+#nowSelectionClass,
+#favorSelectionClass {
   width: 100%;
   height: 600px; /* Set the height to 400px */
   border: 5px solid #af86c3;

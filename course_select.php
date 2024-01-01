@@ -10,6 +10,7 @@
     <script src="script.js"></script>
     <script src="select_script.js"></script>
     <script src="show_table_script.js"></script>
+    <script src="change_select_table_script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 
@@ -169,6 +170,8 @@
             <div id="selectionClass">
             </div>
             <div id="nowSelectionClass">
+            </div>
+            <div id="favorSelectionClass">
             </div>
             <span id="functionButton">
                 <button id="exportButton">Export to PDF</button>
