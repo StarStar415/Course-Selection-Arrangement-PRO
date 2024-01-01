@@ -42,7 +42,7 @@ $(document).ready(function () {
             var timeArray = Time.split(',');
             console.log(timeArray);
             for(var i = 0; i < timeArray.length; i++){
-                $("#" + timeArray[i]).append('<span id="'+Course_ID+Grade+'">' + Course_ID + "\n" + Course_Name + "\n" + Teacher_Name + '</span>');
+                $("#" + timeArray[i]).append('<span id="'+Course_ID+Grade+'">' + Course_ID + "<br>" + Course_Name + "<br>" + Teacher_Name + '</span>');
             }
             
         }
