@@ -24,8 +24,6 @@
         echo '<h1>學途~啟航!</h1>';
     }
     ?>
-    <input type="checkbox" id="checkbox" name="checkbox">
-
 
     <div id="container">
         <div id="left">
