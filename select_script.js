@@ -14,7 +14,6 @@ $(document).ready(function () {
         var User_Name = $('#user_name').text();
         if ($(this).is(':checked')) {
             // 將資料寫入 db
-            console.log("insert");
             console.log(currentRow);
 
             $.ajax({
@@ -32,7 +31,7 @@ $(document).ready(function () {
                 User_Name: User_Name
             },
             success: function (response) {
-                console.log(response);
+                updateTable();
             },
             error: function (error) {
                 console.error('錯誤：', error);
@@ -48,7 +47,6 @@ $(document).ready(function () {
         }
         else{
             // 將資料刪除 db
-            console.log("delete");
             console.log(currentRow);
             $.ajax({
             type: 'POST',
@@ -59,7 +57,7 @@ $(document).ready(function () {
                 User_Name: User_Name
             },
             success: function (response) {
-                console.log(response);
+                updateTable();
             },
             error: function (error) {
                 console.error('錯誤：', error);
@@ -72,21 +70,23 @@ $(document).ready(function () {
                 $("#" + Course_ID+Grade).text("");
             }
         }
-
-        $.ajax({
-            type: "POST",
-            url: "select_class_output.php",
-            data: {
-                User_Name: User_Name
-            },
-    
-            success: function (response) {
-              displayResults(response);
-            },
-            error: function (error) {
-              console.error("Error:", error);
-            },
-          });
+        function updateTable(){
+            $.ajax({
+                type: "POST",
+                url: "select_class_output.php",
+                data: {
+                    User_Name: User_Name
+                },
+        
+                success: function (response) {
+                  displayResults(response);
+                },
+                error: function (error) {
+                  console.error("Error:", error);
+                },
+              });
+        }
+        
 
         function displayResults(response) {
         var tableHTML =
