@@ -1,5 +1,11 @@
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Lobster&display=swap");
+.selectionClass .nav-tabs .nav-link,
+.selectionClass .nav-tabs .nav-link.active {
+  color: #495057;
+  background-color: #fff;
+  border-color: #ffffff #ffffff #af86c3;
+}
 
 #container {
   display: flex;
@@ -12,18 +18,6 @@ h1 {
   background-color: #9f93c6; /* 紫色系背景色 */
   color: #fff; /* 文字顏色 */
   margin: 0; /* 清除預設的外邊距 */
-}
-
-#user_block {
-  float: right;
-  padding: 0 10px;
-  font-size: 20px;
-}
-
-span img {
-  width: 42px; /* 調整圖片的寬度，根據需要修改 */
-  height: 42px; /* 調整圖片的高度，根據需要修改 */
-  margin-right: 8px; /* 可以根據需要調整圖片和文字之間的間距 */
 }
 
 input[type="checkbox"] {
@@ -41,7 +35,6 @@ input[type="checkbox"] {
   transition: background-color 0.3s ease;
   display: flex; /* 使用 Flex 布局 */
   align-items: center; /* 垂直置中 */
-  margin: 0 auto;
 }
 
 input[type="checkbox"]:checked::before {
@@ -70,7 +63,6 @@ input[type="checkbox"]:hover {
 #right {
   flex: 1;
   margin-left: 20px;
-  margin-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,25 +84,15 @@ h1 {
   text-align: center;
   font-size: 50px;
 }
-
-#functionButton {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-#exportButton,
-#emailButton {
+#exportButton {
   background-color: rgb(255, 255, 255);
   border: 3px solid rgb(6, 22, 17);
   font-size: 150%;
   width: 100%;
-  margin: 5px;
   border-radius: 5px;
   height: 50px;
 }
-#exportButton:hover,
-#emailButton:hover {
+#exportButton:hover {
   background-color: #bd99d2;
 }
 h2 {
@@ -138,7 +120,6 @@ select option {
 body {
   font-family: "cwTeXYen", "Comfortaa", sans-serif;
   font-size: 20px;
-  user-select: none;
 }
 
 #timeoptions {
@@ -177,7 +158,7 @@ select option {
 }
 
 #select_type {
-  align-items: center; /* 垂直居中 */
+    align-items: center; /* 垂直居中 */
 }
 
 #department,
@@ -209,33 +190,21 @@ select option {
   box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
-#logoutButton {
-  width: 60px;
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  background-color: #af86c3;
-  color: #fff;
-}
-
 #queryButton {
-  width: 80px; /* Set the width */
-  padding: 8px; /* Set the padding */
-  font-size: 16px; /* Set the font size */
-  border: 1px solid #ccc; /* Set the border */
-  border-radius: 4px; /* Set the border-radius */
-  outline: none; /* Remove the outline on focus */
-  cursor: pointer; /* Add a pointer cursor */
-  background-color: #af86c3; /* Set the background color */
-  color: #fff;
+    width: 80px; /* Set the width */
+    padding: 8px; /* Set the padding */
+    font-size: 16px; /* Set the font size */
+    border: 1px solid #ccc; /* Set the border */
+    border-radius: 4px; /* Set the border-radius */
+    outline: none; /* Remove the outline on focus */
+    cursor: pointer; /* Add a pointer cursor */
+    background-color: #af86c3; /* Set the background color */
+    color: #fff;
 }
 
 #queryButton:hover {
-  background-color: #ab77c5; /* 修改背景顏色 */
-  color: #fff; /* 修改文字顏色 */
+    background-color: #ab77c5; /* 修改背景顏色 */
+    color: #fff; /* 修改文字顏色 */
 }
 
 #queryButton:focus {
@@ -243,13 +212,11 @@ select option {
   box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
-#querryButton:active {
-  background-color: rgb(0, 0, 0); /* 修改背景顏色 */
+#querryButton:active{
+    background-color: rgb(0,0,0); /* 修改背景顏色 */
 }
 
-#selectionClass,
-#nowSelectionClass,
-#favorSelectionClass {
+.tab-content {
   width: 100%;
   height: 600px; /* Set the height to 400px */
   border: 5px solid #af86c3;
@@ -306,17 +273,17 @@ select option {
   scrollbar-width: thin;
 }
 @media only screen and (max-width: 1000px) {
-  #container {
-    flex-direction: column;
-  }
-  #left {
-    width: 98%;
-  }
+    #container {
+        flex-direction: column; 
+    }
+    #left {
+        width:98%;
+    }
 
-  #right {
-    margin-top: 20px;
-    width: 95%;
-  }
+    #right {
+        margin-top: 20px; 
+        width:95%;
+    }
 }
 
 .tab {
@@ -332,4 +299,20 @@ select option {
 
 .tab:hover {
   background-color: #ab77c5; /* 滑鼠懸停時的背景色 */
+}
+.selectionClass{
+  float:left;
+  width:80%;
+  margin-left: 6px;
+  /* height: 600px; Set the height to 400px */
+  /* border: 5px solid #af86c3; */
+  /* border-radius: 10px; */
+  /* margin-top: 20px; */
+  /* padding: 10px; */
+  /* box-sizing: border-box; */
+  /* background-color: #e6e6fa; Set a light purple background color */
+  /* overflow: auto; */
+}
+.selection{
+  width: 100%;
 }

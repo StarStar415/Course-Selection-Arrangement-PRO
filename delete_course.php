@@ -1,7 +1,7 @@
 <?php
-// 刪除課程
+
 $user = 'root';
-$password = '01057132';
+$password = 'D223084117980141';
 
 try {
     $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);

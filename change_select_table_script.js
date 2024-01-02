@@ -3,7 +3,7 @@ $(document).ready(function () {
     console.log("ready");
     var User_Name = $('#user_name').text();
     $("#selectionClass").show();
-    $("#selectionClassButton").css("background-color", "#805a94");
+    $("#selectionClassButton").css("background-color", "#af86c3");
     $("#nowSelectionClass").hide();
     $("#favorSelectionClass").hide();
 
@@ -15,18 +15,51 @@ $(document).ready(function () {
         $("#nowSelectionClass").hide();
         $("#favorSelectionClass").hide();
 
-        $("#selectionClassButton").css("background-color", "#805a94");
-        $("#nowSelectionClassButton").css("background-color", "#ab77c5");
-        $("#favorSelectionClassButton").css("background-color", "#ab77c5");
+        document.getElementById("selectionClassButton").setAttribute("class","nav-link active");
+        document.getElementById("selectionClassButton").setAttribute("aria-selected","true");
+
+        document.getElementById("nowSelectionClassButton").setAttribute("class","nav-link");
+        document.getElementById("nowSelectionClassButton").setAttribute("aria-selected","false");
+        
+        document.getElementById("favorSelectionClassButton").setAttribute("class","nav-link");
+        document.getElementById("favorSelectionClassButton").setAttribute("aria-selected","false");
+
+        document.getElementById("selectionClass").setAttribute("class","tab-pane fade show active");
+        document.getElementById("nowSelectionClass").setAttribute("class","tab-pane fade");
+        document.getElementById("favorSelectionClass").setAttribute("class","tab-pane fade");
+        
+        $("#selectionClassButton").css("background-color", "#af86c3");
+        $("#nowSelectionClassButton").css("background-color", "#ffffff");
+        $("#favorSelectionClassButton").css("background-color", "#ffffff");
+        
+        $("#selectionClassButton").css("color", "#ffffff");
+        $("#nowSelectionClassButton").css("color", "#000000");
+        $("#favorSelectionClassButton").css("color", "#000000");
       } else if (target == "nowSelectionClassButton"){
         console.log("nowSelectionClass");
         $("#selectionClass").hide();
         $("#nowSelectionClass").show();
         $("#favorSelectionClass").hide();
+        document.getElementById("selectionClassButton").setAttribute("class","nav-link");
+        document.getElementById("selectionClassButton").setAttribute("aria-selected","false");
 
-        $("#selectionClassButton").css("background-color", "#ab77c5");
-        $("#nowSelectionClassButton").css("background-color", "#805a94");
-        $("#favorSelectionClassButton").css("background-color", "#ab77c5");
+        document.getElementById("nowSelectionClassButton").setAttribute("class","nav-link active");
+        document.getElementById("nowSelectionClassButton").setAttribute("aria-selected","true");
+        
+        document.getElementById("favorSelectionClassButton").setAttribute("class","nav-link");
+        document.getElementById("favorSelectionClassButton").setAttribute("aria-selected","false");
+
+        document.getElementById("selectionClass").setAttribute("class","tab-pane fade");
+        document.getElementById("nowSelectionClass").setAttribute("class","tab-pane fade show active");
+        document.getElementById("favorSelectionClass").setAttribute("class","tab-pane fade");
+
+        $("#selectionClassButton").css("background-color", "#ffffff");
+        $("#nowSelectionClassButton").css("background-color", "#af86c3");
+        $("#favorSelectionClassButton").css("background-color", "#ffffff");
+        
+        $("#selectionClassButton").css("color", "#000000");
+        $("#nowSelectionClassButton").css("color", "#ffffff");
+        $("#favorSelectionClassButton").css("color", "#000000");
   
         $.ajax({
           type: "POST",
@@ -74,10 +107,9 @@ $(document).ready(function () {
         $("#selectionClass").hide();
         $("#nowSelectionClass").hide();
         $("#favorSelectionClass").show();
+        document.getElementById("selectionClassButton").setAttribute("class","nav-link");
+        document.getElementById("selectionClassButton").setAttribute("aria-selected","false");
 
-        $("#selectionClassButton").css("background-color", "#ab77c5");
-        $("#nowSelectionClassButton").css("background-color", "#ab77c5");
-        $("#favorSelectionClassButton").css("background-color", "#805a94");
         console.log("favorSelectionClass");
         $.ajax({
           type: "POST",
@@ -120,6 +152,23 @@ $(document).ready(function () {
   
         $("#favorSelectionClass").html(tableHTML);
         }
+        document.getElementById("nowSelectionClassButton").setAttribute("class","nav-link");
+        document.getElementById("nowSelectionClassButton").setAttribute("aria-selected","false");
+        
+        document.getElementById("favorSelectionClassButton").setAttribute("class","nav-link active");
+        document.getElementById("favorSelectionClassButton").setAttribute("aria-selected","true");
+
+        document.getElementById("selectionClass").setAttribute("class","tab-pane fade");
+        document.getElementById("nowSelectionClass").setAttribute("class","tab-pane fade");
+        document.getElementById("favorSelectionClass").setAttribute("class","tab-pane fade show active");
+        
+        $("#selectionClassButton").css("background-color", "#ffffff");
+        $("#nowSelectionClassButton").css("background-color", "#ffffff");
+        $("#favorSelectionClassButton").css("background-color", "#af86c3");
+
+        $("#selectionClassButton").css("color", "#000000");
+        $("#nowSelectionClassButton").css("color", "#000000");
+        $("#favorSelectionClassButton").css("color", "#ffffff");
       }
     });
   });
