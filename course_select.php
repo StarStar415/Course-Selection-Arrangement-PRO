@@ -20,7 +20,7 @@
     <div id="container">
         <div id="left">
             <h2>選課</h2>
-            <div id=select_type width=500 style="width: 500px">
+            <div id="select_type" width=500 style="width: 500px">
                 <span id="query">查詢：
                     <select name="options" id="options" style="width: 400px">
                         <option value="Dept_Name" selected>系所</option>
@@ -34,7 +34,7 @@
 
                 </span>
                 <span id="department" style="width: 550px;line-height: 4">系所：
-                    <select name="options" id="dept_select">
+                    <select name="options" id="dept_select" style="width: 296px">
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
@@ -152,17 +152,36 @@
                 </span>
             </div>
             <br>
-            <div>
-                <span class="tab" id="selectionClassButton">查詢結果</span>
+            <div class="selection">
+                <!-- <span class="tab" id="selectionClassButton">查詢結果</span>
                 <span class="tab" id="nowSelectionClassButton">目前課表</span>
-
+                <span class="tab" id="favorSelectionClassButton">最愛課程</span> -->
+                <nav class="selectionClass">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="selectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-selectionClassButton" type="button" role="tab" aria-controls="nav-selectionClassButton" aria-selected="true" style="color:#ffffff">查詢結果</button>
+                        <button class="nav-link" id="nowSelectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-nowSelectionClassButton" type="button" role="tab" aria-controls="nav-nowSelectionClassButton" aria-selected="true" style="color:#000000">目前課表</button>
+                        <button class="nav-link" id="favorSelectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-favorSelectionClassButton" type="button" role="tab" aria-controls="nav-favorSelectionClassButton" aria-selected="true" style="color:#000000">最愛課程</button>
+                        <h3>總學分數</h3>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="selectionClass" role="tabpanel" aria-labelledby="nav-selectionClassButton-tab" style="margin: 0px"></div>
+                    <div class="tab-pane fade" id="nowSelectionClass" role="tabpanel" aria-labelledby="nav-nowSelectionClassButton-tab" style="margin: 0px"></div>
+                    <div class="tab-pane fade" id="favorSelectionClass" role="tabpanel" aria-labelledby="nav-favorSelectionClassButton-tab" style="margin:0px"></div>
+                </div>
             </div>
-            <div id="selectionClass">
+
+            <!-- <div id="selectionClass">
             </div>
             <div id="nowSelectionClass">
             </div>
-            <br>
-            <button id="exportButton">Export to PDF</button>
+            <div id="favorSelectionClass">
+            </div> -->
+            <span id="functionButton">
+                <button id="exportButton">Export to PDF</button>
+                <button id="emailButton">Send to Email</button> 
+            </span>
+            
         </div>
 
         <div id="right">
