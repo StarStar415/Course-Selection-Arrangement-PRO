@@ -205,9 +205,6 @@
             </div>
             <br>
             <div class="selection">
-                <!-- <span class="tab" id="selectionClassButton">查詢結果</span>
-                <span class="tab" id="nowSelectionClassButton">目前課表</span>
-                <span class="tab" id="favorSelectionClassButton">最愛課程</span> -->
                 <nav class="selectionClass">
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link active" id="selectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-selectionClassButton" type="button" role="tab" aria-controls="nav-selectionClassButton" aria-selected="true" style="color:#ffffff">查詢結果</button>
@@ -222,13 +219,6 @@
                     <div class="tab-pane fade" id="favorSelectionClass" role="tabpanel" aria-labelledby="nav-favorSelectionClassButton-tab" style="margin:0px"></div>
                 </div>
             </div>
-
-            <!-- <div id="selectionClass">
-            </div>
-            <div id="nowSelectionClass">
-            </div>
-            <div id="favorSelectionClass">
-            </div> -->
             <br><br>
             <span id="functionButton">
                 <button id="exportButton">Export to PDF</button>
