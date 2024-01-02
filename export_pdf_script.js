@@ -1,18 +1,18 @@
 // export PDF
 function start() {
-    document.getElementById("exportButton").addEventListener("click", () => {
-      let table = document.getElementById("classTable");
-  
-      const width = table.offsetWidth;
-      const height = table.offsetHeight;
-  
-      let printWindow = window.open("", "", `width=${width}, height=${height}`);
-  
-      printWindow.document.write("<html><head><title>Print Table</title>");
-      printWindow.document.write("</head><body></body></html>");
-      printWindow.document.close();
-  
-      printWindow.document.body.innerHTML = `
+  document.getElementById("exportButton").addEventListener("click", () => {
+    let table = document.getElementById("classTable");
+
+    const width = table.offsetWidth;
+    const height = table.offsetHeight;
+
+    let printWindow = window.open("", "", `width=${width}, height=${height}`);
+
+    printWindow.document.write("<html><head><title>Print Table</title>");
+    printWindow.document.write("</head><body></body></html>");
+    printWindow.document.close();
+
+    printWindow.document.body.innerHTML = `
               <style>
               html, body {
                   margin: 0;
@@ -38,12 +38,11 @@ function start() {
                   ${table.innerHTML}
               </table>
           `;
-  
-      printWindow.focus();
-      printWindow.print();
-      printWindow.close();
-    });
-  }
-  
-  window.addEventListener("load", start, false);
-  
+
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
+  });
+}
+
+window.addEventListener("load", start, false);

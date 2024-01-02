@@ -2,7 +2,7 @@
 
 // 因為select查詢下去要有選過和沒選過 所以我想要分成兩個 sql 查詢結果
 $user = 'root';
-$password = '01057132';
+$password = '123';
 
 try {
     $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
@@ -12,7 +12,7 @@ try {
     $Course_ID = $_POST['Course_ID'];
     $User_Name = $_POST['User_Name'];
     $Grade = $_POST['Grade'];
-    
+
     $modified_User_Name = substr($User_Name, 1);
     $query = "
         SELECT *

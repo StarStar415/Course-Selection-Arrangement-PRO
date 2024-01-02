@@ -1,7 +1,9 @@
 <?php session_start(); ?>
 <html>
+
 <head>
     <title>Course Select</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <style type="text/css">
         @import "style.css";
     </style>
@@ -30,6 +32,28 @@
                 },
                 error: function(error) {
                     console.log(error);
+                },
+            });
+        }
+
+        function sendToMail() {
+            console.log("send to mail");
+
+            let username = document.getElementById("user_name").innerText;
+
+            $.ajax({
+                type: "POST",
+                url: "sendPDF.php",
+                data: {
+                    username: username.trim(),
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert("寄送成功");
+                },
+                error: function(error) {
+                    console.log(error);
+                    alert("寄送失敗");
                 },
             });
         }
@@ -66,7 +90,7 @@
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = '01057132';
+                        $password = '123';
                         //--------------------------------
                         try {
                             //--------這裡記得要改成自己的--------
@@ -189,7 +213,7 @@
                         <button class="nav-link active" id="selectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-selectionClassButton" type="button" role="tab" aria-controls="nav-selectionClassButton" aria-selected="true" style="color:#ffffff">查詢結果</button>
                         <button class="nav-link" id="nowSelectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-nowSelectionClassButton" type="button" role="tab" aria-controls="nav-nowSelectionClassButton" aria-selected="true" style="color:#000000">目前課表</button>
                         <button class="nav-link" id="favorSelectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-favorSelectionClassButton" type="button" role="tab" aria-controls="nav-favorSelectionClassButton" aria-selected="true" style="color:#000000">最愛課程</button>
-                        <span >目前總學分數：</span><span id="totalCredit"></span>
+                        <span>目前總學分數：</span><span id="totalCredit"></span>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -208,9 +232,9 @@
             <br><br>
             <span id="functionButton">
                 <button id="exportButton">Export to PDF</button>
-                <button id="emailButton">Send to Email</button> 
+                <button id="emailButton" onclick="sendToMail()">Send to Email</button>
             </span>
-            
+
         </div>
 
         <div id="right">
