@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 
 $mail = new PHPMailer(true); // Passing `true` enables exceptions
 $user = 'root';
-$password = '01057132';
+$password = '123';
 $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
 
 try {
@@ -21,6 +21,7 @@ try {
 
     $username  = $_POST['username'];
 
+    $data = $_POST['data'];
     $query = "SELECT * FROM user WHERE User_Name = ?";
 
     $stmt = $db->prepare($query);
@@ -57,7 +58,8 @@ try {
     $stmt = $db->prepare($query);
     $error = $stmt->execute();
     $result = $stmt->fetchAll();
-    $tmp = '<h3>以下為您的選課清單：</h3><table border="1" style="width: 100%; border-collapse: collapse;">
+    $tmp = '
+    <h3>以下為您的選課清單：</h3><table border="1" style="width: 100%; border-collapse: collapse;">
         <tr style="background-color: #f2f2f2;">
             <th style="padding: 10px;">Course ID</th>
             <th style="padding: 10px;">Course Name</th>
@@ -69,21 +71,22 @@ try {
             <th style="padding: 10px;">Time</th>
         </tr>';
 
-foreach ($result as $row) {
-    $tmp .= '<tr style="text-align: center;">';
-    $tmp .= '<td style="padding: 10px;">' . $row['Course_ID'] . '</td>';
-    $tmp .= '<td style="padding: 10px;">' . $row['Course_Name'] . '</td>';
-    $tmp .= '<td style="padding: 10px;">' . $row['Dept_Name'] . '</td>';
-    $tmp .= '<td style="padding: 10px;">' . $row['Grade'] . '</td>';
-    $tmp .= '<td style="padding: 10px;">' . $row['Teacher_Name'] . '</td>';
-    $tmp .= '<td style="padding: 10px;">' . $row['Credit'] . '</td>';
-    $tmp .= '<td style="padding: 10px;">' . $row['Class_Type'] . '</td>';
-    $tmp .= '<td style="padding: 10px;">' . $row['Time'] . '</td>';
-    $tmp .= '</tr>';
-}
+    foreach ($result as $row) {
+        $tmp .= '<tr style="text-align: center;">';
+        $tmp .= '<td style="padding: 10px;">' . $row['Course_ID'] . '</td>';
+        $tmp .= '<td style="padding: 10px;">' . $row['Course_Name'] . '</td>';
+        $tmp .= '<td style="padding: 10px;">' . $row['Dept_Name'] . '</td>';
+        $tmp .= '<td style="padding: 10px;">' . $row['Grade'] . '</td>';
+        $tmp .= '<td style="padding: 10px;">' . $row['Teacher_Name'] . '</td>';
+        $tmp .= '<td style="padding: 10px;">' . $row['Credit'] . '</td>';
+        $tmp .= '<td style="padding: 10px;">' . $row['Class_Type'] . '</td>';
+        $tmp .= '<td style="padding: 10px;">' . $row['Time'] . '</td>';
+        $tmp .= '</tr>';
+    }
 
-$tmp .= '</table>';
+    $tmp .= '</table>';
 
+    $tmp .= $data;
 
     $mail->msgHTML($tmp); // Set the HTML body
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
