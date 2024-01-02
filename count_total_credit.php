@@ -10,7 +10,7 @@ try {
 
     $User_Name = $_POST['User_Name'];
     $modified_User_Name = substr($User_Name, 1);
-    $query = "SELECT sum(credit) FROM user_class WHERE  User_Name = ? ";
+    $query = "SELECT sum(credit) as total FROM user_class WHERE  User_Name = ? ";
     $stmt = $db->prepare($query);
 
     $stmt->execute(array($modified_User_Name));

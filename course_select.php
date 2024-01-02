@@ -189,7 +189,7 @@
                         <button class="nav-link active" id="selectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-selectionClassButton" type="button" role="tab" aria-controls="nav-selectionClassButton" aria-selected="true" style="color:#ffffff">查詢結果</button>
                         <button class="nav-link" id="nowSelectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-nowSelectionClassButton" type="button" role="tab" aria-controls="nav-nowSelectionClassButton" aria-selected="true" style="color:#000000">目前課表</button>
                         <button class="nav-link" id="favorSelectionClassButton" data-bs-toggle="tab" data-bs-target="#nav-favorSelectionClassButton" type="button" role="tab" aria-controls="nav-favorSelectionClassButton" aria-selected="true" style="color:#000000">最愛課程</button>
-                        <h3>總學分數</h3>
+                        <span >目前總學分數：</span><span id="totalCredit"></span>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">

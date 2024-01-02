@@ -13,15 +13,31 @@ $(document).ready(function () {
             User_Name: User_Name
         },
         success: function (response) {
-            console.log(response);
+            var courseData = JSON.parse(response);
+            $('#totalCredit').html(courseData[0].total);
         },
         error: function (error) {
             console.error('錯誤：', error);
         }
         });
 
+        
     $('#selectionClass, #nowSelectionClass, #favorSelectionClass').on('change', 'input[type="checkbox"]', function () {
-        console.log("ouo");
+        $.ajax({
+            type: 'POST',
+            url: 'count_total_credit.php', 
+            data: {
+                User_Name: User_Name
+            },
+            success: function (response) {
+                var totalCredit = JSON.parse(response);
+                console.log(totalCredit[0]["sum(credit)"]);
+                $('#totalCredit').html(totalCredit[0]["sum(credit)"]);
+            },
+            error: function (error) {
+                console.error('錯誤：', error);
+            }
+            });
         var id = $(this).closest('[id]').parent().attr('id');
         console.log(id);
         if (id === 'selectionClass') {
