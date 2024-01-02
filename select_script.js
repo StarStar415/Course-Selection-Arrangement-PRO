@@ -3,19 +3,42 @@
 // 每次都會更新 nowSelect
 $(document).ready(function () {
     // 將事件監聽器附加到 checkbox 上
-    $('#selectionClass, #nowSelectionClass').on('change', 'input[type="checkbox"]', function () {
+    $('#selectionClass, #nowSelectionClass, #favorSelectionClass').on('change', 'input[type="checkbox"]', function () {
         console.log("ouo");
-        var currentRow = $(this).closest('tr');
-        var Course_ID = currentRow.find('td:eq(2)').text();
-        var Course_Name = currentRow.find('td:eq(3)').text(); 
-        console.log(Course_ID);
-        console.log(Course_Name);
-        var Dept_Name = currentRow.find('td:eq(4)').text();
-        var Grade = currentRow.find('td:eq(5)').text();
-        var Teacher_Name = currentRow.find('td:eq(6)').text();
-        var Credit = currentRow.find('td:eq(7)').text();
-        var Class_Type = currentRow.find('td:eq(8)').text();
-        var Time = currentRow.find('td:eq(9)').text();
+        var id = $(this).closest('[id]').parent().attr('id');
+        console.log(id);
+        if (id === 'selectionClass') {
+            var currentRow = $(this).closest('tr');
+            var Course_ID = currentRow.find('td:eq(2)').text();
+            var Course_Name = currentRow.find('td:eq(3)').text(); 
+            var Dept_Name = currentRow.find('td:eq(4)').text();
+            var Grade = currentRow.find('td:eq(5)').text();
+            var Teacher_Name = currentRow.find('td:eq(6)').text();
+            var Credit = currentRow.find('td:eq(7)').text();
+            var Class_Type = currentRow.find('td:eq(8)').text();
+            var Time = currentRow.find('td:eq(9)').text();
+            console.log('selectionClass 觸發了變更事件');
+        } else {
+            var currentRow = $(this).closest('tr');
+            var Course_ID = currentRow.find('td:eq(1)').text();
+            var Course_Name = currentRow.find('td:eq(2)').text(); 
+            var Dept_Name = currentRow.find('td:eq(3)').text();
+            var Grade = currentRow.find('td:eq(4)').text();
+            var Teacher_Name = currentRow.find('td:eq(5)').text();
+            var Credit = currentRow.find('td:eq(6)').text();
+            var Class_Type = currentRow.find('td:eq(7)').text();
+            var Time = currentRow.find('td:eq(8)').text();
+            console.log('favorSelectionClass 觸發了變更事件');
+        } 
+        // var currentRow = $(this).closest('tr');
+        // var Course_ID = currentRow.find('td:eq(2)').text();
+        // var Course_Name = currentRow.find('td:eq(3)').text(); 
+        // var Dept_Name = currentRow.find('td:eq(4)').text();
+        // var Grade = currentRow.find('td:eq(5)').text();
+        // var Teacher_Name = currentRow.find('td:eq(6)').text();
+        // var Credit = currentRow.find('td:eq(7)').text();
+        // var Class_Type = currentRow.find('td:eq(8)').text();
+        // var Time = currentRow.find('td:eq(9)').text();
         var User_Name = $('#user_name').text();
         // 判斷 checkbox 的父元素是否有 class 'favorCourse'
         var isSelectCourse = $(this).closest('td').hasClass('selectCourse');
@@ -40,7 +63,7 @@ $(document).ready(function () {
                     User_Name: User_Name
                 },
                 success: function (response) {
-                    updateTable();
+                    updateFavorTable();
                 },
                 error: function (error) {
                     console.error('錯誤：', error);
@@ -60,7 +83,7 @@ $(document).ready(function () {
                     User_Name: User_Name
                 },
                 success: function (response) {
-                    updateTable();
+                    updateFavorTable();
                 },
                 error: function (error) {
                     console.error('錯誤：', error);
@@ -69,7 +92,11 @@ $(document).ready(function () {
             }
         }
         else{
+            
+            console.log("select");
             if ($(this).is(':checked')) {
+                
+                console.log("checked");
                 // 將資料寫入 db
                 $.ajax({
                 type: 'POST',
@@ -102,6 +129,11 @@ $(document).ready(function () {
             }
             else{
                 // 將資料刪除 db
+                
+                console.log(Course_ID);
+                console.log(Grade);
+                console.log(User_Name);
+                console.log("Nochecked");
                 console.log(currentRow);
                 $.ajax({
                 type: 'POST',
@@ -112,6 +144,7 @@ $(document).ready(function () {
                     User_Name: User_Name
                 },
                 success: function (response) {
+                    console.log(response);
                     updateTable();
                 },
                 error: function (error) {
@@ -153,10 +186,10 @@ $(document).ready(function () {
                 },
         
                 success: function (response) {
-                  displayResults(response);
+                    displayFavorResults(response);
                 },
                 error: function (error) {
-                  console.error("Error:", error);
+                    console.error("Error:", error);
                 },
               });
         }
@@ -169,7 +202,7 @@ $(document).ready(function () {
         for (var i = 0; i < courseData.length; i++) {
             tableHTML += "<tr>";
             tableHTML +=
-            '<label><td style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
+            '<label><td class="selectCourse" style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
             courseData[i].Course_ID + courseData[i].Grade +
             '" checked></td></label>';
             tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
@@ -188,5 +221,33 @@ $(document).ready(function () {
     
         $("#nowSelectionClass").html(tableHTML);
         }
+
+        function displayFavorResults(response) {
+            console.log("favorResults");
+            var tableHTML =
+                '<table id ="nowCourse" border="1"><thead><tr><th style="width: 35px;">最愛</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>學分   </th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
+            var courseData = JSON.parse(response);
+            for (var i = 0; i < courseData.length; i++) {
+                tableHTML += "<tr>";
+                tableHTML +=
+                '<label><td class="favorCourse" style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
+                courseData[i].Course_ID + courseData[i].Grade +
+                '" checked></td></label>';
+                tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
+                tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
+                tableHTML += "<td>" + courseData[i].Dept_Name + "</td>";
+                tableHTML += "<td>" + courseData[i].Grade + "</td>";
+                tableHTML += "<td>" + courseData[i].Teacher_Name + "</td>";
+                
+                tableHTML += "<td>" + courseData[i].Credit + "</td>";
+                tableHTML += "<td>" + courseData[i].Class_Type + "</td>";
+                tableHTML += "<td>" + courseData[i].Time + "</td>";
+                tableHTML += "</tr>";
+            }
+        
+            tableHTML += "</tbody></table>";
+        
+            $("#favorSelectionClass").html(tableHTML);
+            }
     });
   });

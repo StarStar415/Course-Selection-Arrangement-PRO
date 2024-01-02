@@ -18,7 +18,7 @@ try {
     $Time = $_POST['Time'];
     $User_Name = $_POST['User_Name'];
 
-    $query = "INSERT INTO user_faovr VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO user_favor VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $db->prepare($query);
 
     $stmt->execute(array($User_Name, $Course_ID, $Course_Name, $Dept_Name, $Grade, $Teacher_Name, $Credit, $Class_Type, $Time));
