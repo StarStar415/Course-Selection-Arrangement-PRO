@@ -192,7 +192,7 @@ $(document).ready(function () {
                 var timeArray = Time.split(',');
                 console.log(timeArray);
                 for(var i = 0; i < timeArray.length; i++){
-                    $("#" + Course_ID+Grade).text("");
+                    $("#" + Course_ID+Grade).remove();
                 }
             }
         }
