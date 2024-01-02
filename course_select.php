@@ -7,7 +7,9 @@
         @import "style.css";
     </style>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="script.js"></script>
+    <script src="change_select_bar_script.js"></script>
+    <script src="export_pdf_script.js"></script>
+    <script src="query_course_script.js"></script>
     <script src="select_script.js"></script>
     <script src="show_table_script.js"></script>
     <script src="change_select_table_script.js"></script>
