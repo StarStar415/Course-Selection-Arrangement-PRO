@@ -1,4 +1,6 @@
 // 進行查詢
+// 透過不同的選擇有不同的輸入丟給後端
+// 判斷當前搜尋到的課程有沒有被選過，選過就要打勾
 $(document).ready(function () {
     var User_Name = $('#user_name').text();
     $("#queryButton").click(function () {

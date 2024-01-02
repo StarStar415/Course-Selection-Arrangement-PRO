@@ -1,5 +1,5 @@
 <?php
-
+// 刪除課程
 $user = 'root';
 $password = '01057132';
 

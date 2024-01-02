@@ -1,3 +1,6 @@
+// checkbox 切換時候要寫入 user_class 資料和刪除 user_class 資料
+// 並且新增到右方課表
+// 每次都會更新 nowSelectionClass
 $(document).ready(function () {
     // 將事件監聽器附加到 checkbox 上
     $('#selectionClass, #nowSelectionClass').on('change', 'input[type="checkbox"]', function () {

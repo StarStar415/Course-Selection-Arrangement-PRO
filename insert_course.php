@@ -1,5 +1,5 @@
 <?php
-
+// insert 選擇的課程到 database user_class
 $user = 'root';
 $password = '01057132';
 
