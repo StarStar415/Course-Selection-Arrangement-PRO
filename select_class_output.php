@@ -9,9 +9,11 @@ try {
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
     $User_Name = $_POST['User_Name'];
+    
+    $modified_User_Name = substr($User_Name, 1);
     $query = "SELECT * FROM user_class WHERE User_Name = ?";
     $stmt = $db->prepare($query);
-    $stmt->execute(array($User_Name));
+    $stmt->execute(array($modified_User_Name));
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
