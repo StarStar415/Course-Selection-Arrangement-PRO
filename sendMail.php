@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 
 $mail = new PHPMailer(true); // Passing `true` enables exceptions
 $user = 'root';
-$password = '01057132';
+$password = 'D223084117980141';
 $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
 
 try {
@@ -93,7 +93,7 @@ function create_table()
 {
     try {
         $user = 'root';
-        $password = '01057132';
+        $password = 'D223084117980141';
         $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -112,7 +112,7 @@ function insertValidCode($username, $validCode)
     $error = '';
     try {
         $user = 'root';
-        $password = '01057132';
+        $password = 'D223084117980141';
         $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -131,7 +131,7 @@ function updateValidCode($username, $validCode)
     $error = '';
     try {
         $user = 'root';
-        $password = '01057132';
+        $password = 'D223084117980141';
         $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
