@@ -19,6 +19,7 @@
 <body>
     <script>
         function handleLogout() {
+            console.log("logout");
             $.ajax({
                 type: "POST",
                 url: "session_remove.php",

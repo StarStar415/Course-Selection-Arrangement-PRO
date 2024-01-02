@@ -18,10 +18,11 @@ try {
     $Time = $_POST['Time'];
     $User_Name = $_POST['User_Name'];
 
+    $modified_User_Name = substr($User_Name, 1);
     $query = "INSERT INTO user_class VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $db->prepare($query);
 
-    $stmt->execute(array($User_Name, $Course_ID, $Course_Name, $Dept_Name, $Grade, $Teacher_Name, $Credit, $Class_Type, $Time));
+    $stmt->execute(array($modified_User_Name, $Course_ID, $Course_Name, $Dept_Name, $Grade, $Teacher_Name, $Credit, $Class_Type, $Time));
 
     $db = null;
 } catch (PDOException $e) {

@@ -13,7 +13,8 @@ try {
     $Course_ID = $_POST['Course_ID'];
     $User_Name = $_POST['User_Name'];
     $Grade = $_POST['Grade'];
-
+    
+    $modified_User_Name = substr($User_Name, 1);
     $query = "
         SELECT *
         FROM user_class
@@ -21,7 +22,7 @@ try {
     ";
 
     $stmt = $db->prepare($query);
-    $stmt->execute(array($User_Name, $Course_ID, $Grade));
+    $stmt->execute(array($modified_User_Name, $Course_ID, $Grade));
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
