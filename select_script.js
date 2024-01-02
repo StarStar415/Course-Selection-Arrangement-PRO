@@ -108,6 +108,15 @@ $(document).ready(function () {
                 
                 $('input[name="selectedCourses[]"][value="' + Course_ID + Grade +'"]').prop('checked', true);
                 console.log("checked");
+                console.log(Course_ID);
+                console.log(Course_Name);
+                console.log(Dept_Name);
+                console.log(Grade);
+                console.log(Teacher_Name);
+                console.log(Credit);
+                console.log(Class_Type);
+                console.log(Time);
+                console.log(User_Name);
                 // 將資料寫入 db
                 $.ajax({
                 type: 'POST',
