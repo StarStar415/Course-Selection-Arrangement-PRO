@@ -1,5 +1,4 @@
 <?php
-// 查詢和使用者輸入有相同子句的課程並回傳
 
 $user = 'root';
 $password = '01057132';
@@ -9,12 +8,10 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-    $courseName = $_POST['queryValue'];
-    $queryType = $_POST['queryType'];
-    $query = "SELECT * FROM class WHERE $queryType LIKE :courseName ORDER BY Grade";
+    $User_Name = $_POST['User_Name'];
+    $query = "SELECT * FROM user_favor WHERE User_Name = ?";
     $stmt = $db->prepare($query);
-    $stmt->bindValue(':courseName', '%' . $courseName . '%', PDO::PARAM_STR);
-    $stmt->execute();
+    $stmt->execute(array($User_Name));
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

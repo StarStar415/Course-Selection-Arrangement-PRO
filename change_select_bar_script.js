@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  
+// 切換查詢類別
     $("#course, #teacher, #time ,#course_id, #sport,#generalEducation").hide();
     $("#department").show();
     // 監聽選擇框變化事件

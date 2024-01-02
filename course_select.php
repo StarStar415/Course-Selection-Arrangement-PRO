@@ -1,6 +1,5 @@
 <?php session_start(); ?>
 <html>
-
 <head>
     <title>Course Select</title>
     <style type="text/css">

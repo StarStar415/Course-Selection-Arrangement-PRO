@@ -1,4 +1,6 @@
 // 進行查詢
+// 透過不同的選擇有不同的輸入丟給後端
+// 判斷當前搜尋到的課程有沒有被選過，選過就要打勾
 $(document).ready(function () {
     var User_Name = $('#user_name').text();
     $("#queryButton").click(function () {
@@ -51,6 +53,7 @@ $(document).ready(function () {
   
           success: function (response) {
             displaySelectResults(response);
+            console.log("test");
           },
           error: function (error) {
             console.error("Error:", error);
@@ -79,7 +82,7 @@ $(document).ready(function () {
   
       function displaySelectResults(response) {
         var tableHTML =
-          '<table id ="nowCourse" border="1"><thead><tr><th style="width: 60px;">選擇</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>學分</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
+          '<table id ="nowCourse" border="1"><thead><tr><th style="width: 40px;">選擇</th><th style="width: 60px;">最愛</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>學分</th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
         var courseData = JSON.parse(response);
         var checkCourseData;
         for (var i = 0; i < courseData.length; i++) {
@@ -106,10 +109,33 @@ $(document).ready(function () {
               console.error("Error:", error);
             },
           });
+
+          $.ajax({
+            type: "POST",
+            url: "query_courses_favor.php",
+            data: { 
+              Course_ID: courseData[i].Course_ID ,
+              Grade: courseData[i].Grade,
+              User_Name: User_Name
+            },
+    
+            success: function (checkResponse) {
+              checkCourseData = JSON.parse(checkResponse);
+              console.log(checkCourseData);
+              if(checkCourseData.length != 0){
+                $('input[name="selectedCourses[]"][value="' + checkCourseData[0].Course_ID + checkCourseData[0].Grade +'favor"]').prop('checked', true);
+              }
+            },
+            error: function (error) {
+              console.error("Error:", error);
+            },
+          });
+
           tableHTML +=
-          '<label><td style="width: 60px;"><input type="checkbox" name="selectedCourses[]" value="' +
+          '<label><td class="selectCourse" style="width: 60px;"><input  type="checkbox" name="selectedCourses[]" value="' +
           courseData[i].Course_ID + courseData[i].Grade +
           '"></td></label>';
+          tableHTML += "<td class='favorCourse'><input type='checkbox'  name='selectedCourses[]' value='" + courseData[i].Course_ID + courseData[i].Grade + "favor'></td>";
           tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
           tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
           tableHTML += "<td>" + courseData[i].Dept_Name + "</td>";

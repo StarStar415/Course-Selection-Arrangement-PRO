@@ -1,9 +1,3 @@
-
-
-
-
-
-
 // export PDF
 function start() {
     document.getElementById("exportButton").addEventListener("click", () => {
