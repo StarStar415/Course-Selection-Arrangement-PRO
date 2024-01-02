@@ -11,15 +11,16 @@ try {
 
     $Course_ID = $_POST['Course_ID'];
     $User_Name = $_POST['User_Name'];
+    $Grade = $_POST['Grade'];
 
     $query = "
         SELECT *
         FROM user_class
-        WHERE User_Name = ? AND Course_ID = ?;
+        WHERE User_Name = ? AND Course_ID = ? and Grade =?;
     ";
 
     $stmt = $db->prepare($query);
-    $stmt->execute(array($User_Name,$Course_ID));
+    $stmt->execute(array($User_Name,$Course_ID,$Grade));
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
