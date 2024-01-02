@@ -2,7 +2,7 @@
 // 查詢和使用者輸入有相同子句的課程並回傳
 
 $user = 'root';
-$password = 'D223084117980141';
+$password = '01057132';
 
 try {
     $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);

@@ -66,7 +66,7 @@
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = 'D223084117980141';
+                        $password = '01057132';
                         //--------------------------------
                         try {
                             //--------這裡記得要改成自己的--------
@@ -205,6 +205,7 @@
             </div>
             <div id="favorSelectionClass">
             </div> -->
+            <br><br>
             <span id="functionButton">
                 <button id="exportButton">Export to PDF</button>
                 <button id="emailButton">Send to Email</button> 
