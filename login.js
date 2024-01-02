@@ -74,6 +74,87 @@ $(document).ready(function () {
       },
     });
   });
+  //更新密碼
+  $("#updateButton").click(function (e) {
+    //轉換回修改密碼頁面
+    $("#update-form").show(200);
+    $("#login-form").hide();
+  });
+  //修改密碼頁面轉回登入頁面
+  $("#updateBackLoginButton").click(function (e) {
+    //轉換回登入頁面
+    $("#update-form").hide();
+    $("#login-form").show(200);
+  });
+  //按下寄送驗證碼按鈕
+  $("#sendMail").click(function (e) {
+    let username = $("#updateUsername").val();
+    if (username.length === 0) {
+      alert("請輸入帳號");
+      return;
+    }
+    $.ajax({
+      type: "POST",
+      url: "sendMail.php",
+      data: {
+        username: username,
+      },
+      success: function (response) {
+        alert(response);
+      },
+      error: function (error) {
+        alert("該帳戶不存在");
+      },
+    });
+  });
+  //按下更新密碼按鈕
+  $("#updateBtn").click(function (e) {
+    let validCode = $("#verifyingCode").val();
+    let username = $("#updateUsername").val();
+    let newPass = $("#newPassword").val();
+    let confirmPass = $("#confirmPassword").val();
+
+    if (newPass.length === 0 || confirmPass.length === 0) {
+      alert("請輸入密碼");
+      return;
+    }
+
+    if (newPass != confirmPass) {
+      alert("請檢查密碼是否輸入相同");
+      return;
+    }
+    if (validCode.length === 0) {
+      alert("請輸入驗證碼");
+      return;
+    }
+    if (username.length === 0) {
+      alert("請輸入帳號");
+      return;
+    }
+
+    $.ajax({
+      type: "POST",
+      url: "checkValidCode.php",
+      data: {
+        username: username,
+        validCode: validCode,
+        password: newPass,
+      },
+      success: function (response) {
+        alert("密碼修改成功");
+        document.getElementById("verifyingCode").value = "";
+        document.getElementById("updateUsername").value = "";
+        document.getElementById("newPassword").value = "";
+        document.getElementById("confirmPassword").value = "";
+        $("#update-form").hide();
+        $("#login-form").show(200);
+      },
+      error: function (error) {
+        console.log(error);
+        alert("驗證碼錯誤，請重新輸入");
+      },
+    });
+  });
 });
 
 //檢查電子郵件格式

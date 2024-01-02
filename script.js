@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  
   $("#course, #teacher, #time ,#course_id, #sport,#generalEducation").hide();
   $("#department").show();
   // 監聽選擇框變化事件
@@ -34,7 +33,7 @@ $(document).ready(function () {
 
 // 進行查詢
 $(document).ready(function () {
-  var User_Name = $('#user_name').text();
+  var User_Name = $("#user_name").text();
   $("#queryButton").click(function () {
     queryCourses();
   });
@@ -65,7 +64,7 @@ $(document).ready(function () {
       queryValue = $("#generalEducation_select").val();
     }
     console.log(queryValue);
-    if(queryValue == undefined || queryValue == null || queryValue == ""){
+    if (queryValue == undefined || queryValue == null || queryValue == "") {
       alert("輸入不可為空!!");
       return;
     }
@@ -80,7 +79,7 @@ $(document).ready(function () {
           queryType: queryType,
           queryValue: queryValue,
           queryGrade: queryGrade,
-          User_Name: User_Name
+          User_Name: User_Name,
         },
 
         success: function (response) {
@@ -95,10 +94,10 @@ $(document).ready(function () {
       $.ajax({
         type: "POST",
         url: "query_courses.php",
-        data: { 
-          queryType: queryType, 
-          queryValue: queryValue ,
-          User_Name: User_Name
+        data: {
+          queryType: queryType,
+          queryValue: queryValue,
+          User_Name: User_Name,
         },
 
         success: function (response) {
@@ -123,16 +122,20 @@ $(document).ready(function () {
         $.ajax({
           type: "POST",
           url: "query_courses_user.php",
-          data: { 
-            Course_ID: courseData[i].Course_ID ,
-            User_Name: User_Name
+          data: {
+            Course_ID: courseData[i].Course_ID,
+            User_Name: User_Name,
           },
-  
+
           success: function (checkResponse) {
             checkCourseData = JSON.parse(checkResponse);
             console.log(checkCourseData);
-            if(checkCourseData.length != 0){
-              $('input[name="selectedCourses[]"][value="' + checkCourseData[0].Course_ID + '"]').prop('checked', true);
+            if (checkCourseData.length != 0) {
+              $(
+                'input[name="selectedCourses[]"][value="' +
+                  checkCourseData[0].Course_ID +
+                  '"]'
+              ).prop("checked", true);
             }
           },
           error: function (error) {
@@ -140,15 +143,15 @@ $(document).ready(function () {
           },
         });
         tableHTML +=
-        '<label><td style="width: 60px;"><input type="checkbox" name="selectedCourses[]" value="' +
-        courseData[i].Course_ID +
-        '"></td></label>';
+          '<label><td style="width: 60px;"><input type="checkbox" name="selectedCourses[]" value="' +
+          courseData[i].Course_ID +
+          '"></td></label>';
         tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
         tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
         tableHTML += "<td>" + courseData[i].Dept_Name + "</td>";
         tableHTML += "<td>" + courseData[i].Grade + "</td>";
         tableHTML += "<td>" + courseData[i].Teacher_Name + "</td>";
-        
+
         tableHTML += "<td>" + courseData[i].Credit + "</td>";
         tableHTML += "<td>" + courseData[i].Class_Type + "</td>";
         tableHTML += "<td>" + courseData[i].Time + "</td>";
@@ -159,11 +162,8 @@ $(document).ready(function () {
 
       $("#selectionClass").append(tableHTML);
     }
-
   }
 });
-
-
 
 // export PDF
 function start() {
@@ -212,4 +212,40 @@ function start() {
   });
 }
 
+//登出按鈕
+function handleLogout() {
+  $.ajax({
+    type: "POST",
+    url: "session_destroy.php",
+    success: function (response) {
+      alert("登出成功" + response);
+      window.location.href = "loginPage.php";
+    },
+    error: function (error) {
+      alert("登出失敗");
+    },
+  });
+}
+
+// 定義檢查 Session 的函數
+function checkSession() {
+  console.log("hi");
+  $.ajax({
+    type: "POST",
+    url: "session_check.php",
+    success: function (response) {
+      $("#header").html(response);
+    },
+    error: function (error) {},
+  });
+}
+
 window.addEventListener("load", start, false);
+
+// 使用 pageshow 事件檢查 Session
+window.addEventListener("pageshow", function (event) {
+  // event.persisted 屬性為 true 表示頁面是由瀏覽歷史返回的
+  if (event.persisted) {
+    checkSession();
+  }
+});

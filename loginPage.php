@@ -30,6 +30,8 @@
             <div class="col">
                 <div class="login-page">
                     <div class="form">
+
+                        <!-- 註冊頁面 -->
                         <div class="register-form input-form" id="register-form">
                             <input type="text" placeholder="username" id="register-username" />
                             <input type="password" placeholder="password" id="register-password" />
@@ -38,12 +40,35 @@
                             <p class="message">Already registered? <a href="#" id="registerLoginBtn">Sign In</a></p>
                         </div>
 
+                        <!-- 登入頁面 -->
                         <div class="login-form input-form" id="login-form">
                             <input type="text" placeholder="username" id="loginUsername" />
                             <input type="password" placeholder="password" id="loginPassword" />
                             <button class="btn" id="loginBtn">login</button>
                             <p class="message">Not registered? <a href="#" id="createButton">Create an account</a></p>
+                            <p class="message">Forget Password? <a href="#" id="updateButton">Update password</a></p>
+
                         </div>
+
+
+                        <!-- 修改頁面 -->
+                        <div class="input-form update-form" id="update-form">
+                            <input type="text" placeholder="username" id="updateUsername" />
+
+
+                            <button class="btn " id="sendMail"> Send Verifying Code</button>
+
+
+                            <input type="text" placeholder="Verifying Code" id="verifyingCode" />
+                            <input type="text" placeholder="New password" id="newPassword" />
+                            <input type="text" placeholder="Confirm password" id="confirmPassword" />
+                            <button class="btn" id="updateBtn">UPDATE</button>
+
+
+                            <p class="message">Login? <a href="#" id="updateBackLoginButton">Sign In</a></p>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
