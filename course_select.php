@@ -1,7 +1,9 @@
 <?php session_start(); ?>
 <html>
+
 <head>
     <title>Course Select</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <style type="text/css">
         @import "style.css";
     </style>
@@ -30,6 +32,28 @@
                 },
                 error: function(error) {
                     console.log(error);
+                },
+            });
+        }
+
+        function sendToMail() {
+            console.log("send to mail");
+
+            let username = document.getElementById("user_name").innerText;
+
+            $.ajax({
+                type: "POST",
+                url: "sendPDF.php",
+                data: {
+                    username: username.trim(),
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert("寄送成功");
+                },
+                error: function(error) {
+                    console.log(error);
+                    alert("寄送失敗");
                 },
             });
         }
@@ -66,7 +90,7 @@
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = '01057132';
+                        $password = '123';
                         //--------------------------------
                         try {
                             //--------這裡記得要改成自己的--------
@@ -193,7 +217,7 @@
             </div>
             <span id="functionButton">
                 <button id="exportButton">Export to PDF</button>
-                <button id="emailButton">Send to Email</button>
+                <button id="emailButton" onclick="sendToMail()">Send to Email</button>
             </span>
 
         </div>

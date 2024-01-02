@@ -1,7 +1,7 @@
 <?php session_start();
 
 $user = 'root';
-$password = '01057132';
+$password = '123';
 
 try {
     $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
