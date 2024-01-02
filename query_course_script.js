@@ -109,11 +109,33 @@ $(document).ready(function () {
               console.error("Error:", error);
             },
           });
+
+          $.ajax({
+            type: "POST",
+            url: "query_courses_favor.php",
+            data: { 
+              Course_ID: courseData[i].Course_ID ,
+              Grade: courseData[i].Grade,
+              User_Name: User_Name
+            },
+    
+            success: function (checkResponse) {
+              checkCourseData = JSON.parse(checkResponse);
+              console.log(checkCourseData);
+              if(checkCourseData.length != 0){
+                $('input[name="selectedCourses[]"][value="' + checkCourseData[0].Course_ID + checkCourseData[0].Grade +'favor"]').prop('checked', true);
+              }
+            },
+            error: function (error) {
+              console.error("Error:", error);
+            },
+          });
+
           tableHTML +=
           '<label><td class="selectCourse" style="width: 60px;"><input  type="checkbox" name="selectedCourses[]" value="' +
           courseData[i].Course_ID + courseData[i].Grade +
           '"></td></label>';
-          tableHTML += "<td class='favorCourse'><input type='checkbox'  name='selectedCourses[]' value='" + courseData[i].Course_ID + courseData[i].Grade + "'></td>";
+          tableHTML += "<td class='favorCourse'><input type='checkbox'  name='selectedCourses[]' value='" + courseData[i].Course_ID + courseData[i].Grade + "favor'></td>";
           tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
           tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
           tableHTML += "<td>" + courseData[i].Dept_Name + "</td>";

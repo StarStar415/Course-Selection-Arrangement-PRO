@@ -30,15 +30,6 @@ $(document).ready(function () {
             var Time = currentRow.find('td:eq(8)').text();
             console.log('favorSelectionClass 觸發了變更事件');
         } 
-        // var currentRow = $(this).closest('tr');
-        // var Course_ID = currentRow.find('td:eq(2)').text();
-        // var Course_Name = currentRow.find('td:eq(3)').text(); 
-        // var Dept_Name = currentRow.find('td:eq(4)').text();
-        // var Grade = currentRow.find('td:eq(5)').text();
-        // var Teacher_Name = currentRow.find('td:eq(6)').text();
-        // var Credit = currentRow.find('td:eq(7)').text();
-        // var Class_Type = currentRow.find('td:eq(8)').text();
-        // var Time = currentRow.find('td:eq(9)').text();
         var User_Name = $('#user_name').text();
         // 判斷 checkbox 的父元素是否有 class 'favorCourse'
         var isSelectCourse = $(this).closest('td').hasClass('selectCourse');
@@ -48,6 +39,7 @@ $(document).ready(function () {
         if (isFavorCourse) {
             if ($(this).is(':checked')) {
                 // 將資料寫入 db
+                
                 $.ajax({
                 type: 'POST',
                 url: 'insert_favor_course.php', 
@@ -69,7 +61,7 @@ $(document).ready(function () {
                     console.error('錯誤：', error);
                 }
                 });
-                
+                $('input[name="selectedCourses[]"][value="' + Course_ID + Grade +'favor"]').prop('checked', true);
             }
             else{
                 // 將資料刪除 db
@@ -89,6 +81,8 @@ $(document).ready(function () {
                     console.error('錯誤：', error);
                 }
                 });
+                
+                $('input[name="selectedCourses[]"][value="' + Course_ID + Grade +'favor"]').prop('checked', false);
             }
         }
         else{
@@ -96,6 +90,7 @@ $(document).ready(function () {
             console.log("select");
             if ($(this).is(':checked')) {
                 
+                $('input[name="selectedCourses[]"][value="' + Course_ID + Grade +'"]').prop('checked', true);
                 console.log("checked");
                 // 將資料寫入 db
                 $.ajax({
@@ -129,6 +124,7 @@ $(document).ready(function () {
             }
             else{
                 // 將資料刪除 db
+                $('input[name="selectedCourses[]"][value="' + Course_ID + Grade +'"]').prop('checked', false);
                 
                 console.log(Course_ID);
                 console.log(Grade);
