@@ -92,7 +92,7 @@
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = '123';
+                        $password = '01057132';
                         //--------------------------------
                         try {
                             $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
@@ -239,7 +239,7 @@
 
         <div id="right">
             <h2>目前課表</h2>
-            <table id="classTable" style='  width: 100%;height: auto;border-collapse: collapse;border: 1px solid;'>
+            <table id="classTable" style='  width: 100%;height: auto;border-collapse: collapse;border: 1px solid; table-layout: fixed;'>
                 <thead>
                     <tr style='border: 1px solid;'>
                         <th style='border: 1px solid;padding: 8px;text-align: center;'>時間</th>
