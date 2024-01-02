@@ -9,7 +9,7 @@ try {
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
     $User_Name = $_POST['User_Name'];
-    
+
     $modified_User_Name = substr($User_Name, 1);
     $query = "SELECT * FROM user_favor WHERE User_Name = ?";
     $stmt = $db->prepare($query);

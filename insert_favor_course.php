@@ -17,7 +17,7 @@ try {
     $Class_Type = $_POST['Class_Type'];
     $Time = $_POST['Time'];
     $User_Name = $_POST['User_Name'];
-    
+
     $modified_User_Name = substr($User_Name, 1);
     $query = "INSERT INTO user_favor VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $db->prepare($query);

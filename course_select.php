@@ -1,7 +1,9 @@
 <?php session_start(); ?>
 <html>
+
 <head>
     <title>Course Select</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <style type="text/css">
         @import "style.css";
     </style>
@@ -30,6 +32,30 @@
                 },
                 error: function(error) {
                     console.log(error);
+                },
+            });
+        }
+
+        function sendToMail() {
+            console.log("send to mail");
+
+            let username = document.getElementById("user_name").innerText;
+            let data = document.getElementById('right').innerHTML;
+            console.log(data);
+            $.ajax({
+                type: "POST",
+                url: "sendPDF.php",
+                data: {
+                    username: username.trim(),
+                    data: data
+                },
+                success: function(response) {
+                    console.log(response);
+                    alert("寄送成功");
+                },
+                error: function(error) {
+                    console.log(error);
+                    alert("寄送失敗");
                 },
             });
         }
@@ -69,9 +95,7 @@
                         $password = 'D223084117980141';
                         //--------------------------------
                         try {
-                            //--------這裡記得要改成自己的--------
                             $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
-                            //--------------------------------
 
                             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                             $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -208,136 +232,136 @@
             <br><br>
             <span id="functionButton">
                 <button id="exportButton">Export to PDF</button>
-                <button id="emailButton">Send to Email</button> 
+                <button id="emailButton" onclick="sendToMail()">Send to Email</button>
             </span>
-            
+
         </div>
 
         <div id="right">
             <h2>目前課表</h2>
-            <table id="classTable" class="table table-bordered border-secondary table-responsive">
+            <table id="classTable" style='  width: 100%;height: auto;border-collapse: collapse;border: 1px solid; table-layout: fixed;'>
                 <thead>
-                    <tr>
-                        <th scope="col">時間</th>
-                        <th scope="col">星期一</th>
-                        <th scope="col">星期二</th>
-                        <th scope="col">星期三</th>
-                        <th scope="col">星期四</th>
-                        <th scope="col">星期五</th>
+                    <tr style='border: 1px solid;'>
+                        <th style='border: 1px solid;padding: 8px;text-align: center;'>時間</th>
+                        <th style='border: 1px solid;padding: 8px;text-align: center;'>星期一</th>
+                        <th style='border: 1px solid;padding: 8px;text-align: center;'>星期二</th>
+                        <th style='border: 1px solid;padding: 8px;text-align: center;'>星期三</th>
+                        <th style='border: 1px solid;padding: 8px;text-align: center;'>星期四</th>
+                        <th style='border: 1px solid;padding: 8px;text-align: center;'>星期五</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>08:20</td>
-                        <td id="101"></td>
-                        <td id="201"></td>
-                        <td id=" 301"></td>
-                        <td id=" 401"></td>
-                        <td id="501"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>08:20</td>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;' id="101"></td>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;' id="201"></td>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;' id=" 301"></td>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;' id=" 401"></td>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;' id="501"></td>
                     </tr>
-                    <tr>
-                        <td>09:20</td>
-                        <td id="102"></td>
-                        <td id="202"></td>
-                        <td id="302"></td>
-                        <td id="402"></td>
-                        <td id="502"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>09:20</td>
+                        <td id="102" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="202" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="302" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="402" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="502" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>10:20</td>
-                        <td id="103"></td>
-                        <td id="203"></td>
-                        <td id="303"></td>
-                        <td id="403"></td>
-                        <td id="503"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>10:20</td>
+                        <td id="103" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="203" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="303" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="403" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="503" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>11:15</td>
-                        <td id="104"></td>
-                        <td id="204"></td>
-                        <td id="304"></td>
-                        <td id="404"></td>
-                        <td id="504"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>11:15</td>
+                        <td id="104" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="204" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="304" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="404" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="504" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>12:10</td>
-                        <td id="105"></td>
-                        <td id="205"></td>
-                        <td id="305"></td>
-                        <td id="405"></td>
-                        <td id="505"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>12:10</td>
+                        <td id="105" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="205" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="305" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="405" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="505" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>13:10</td>
-                        <td id="106"></td>
-                        <td id="206"></td>
-                        <td id="306"></td>
-                        <td id="406"></td>
-                        <td id="506"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>13:10</td>
+                        <td id="106" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="206" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="306" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="406" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="506" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>14:10</td>
-                        <td id="107"></td>
-                        <td id="207"></td>
-                        <td id="307"></td>
-                        <td id="407"></td>
-                        <td id="507"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>14:10</td>
+                        <td id="107" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="207" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="307" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="407" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="507" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>15:10</td>
-                        <td id="108"></td>
-                        <td id="208"></td>
-                        <td id="308"></td>
-                        <td id="408"></td>
-                        <td id="508"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>15:10</td>
+                        <td id="108" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="208" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="308" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="408" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="508" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>16:05</td>
-                        <td id="109"></td>
-                        <td id="209"></td>
-                        <td id="309"></td>
-                        <td id="409"></td>
-                        <td id="509"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>16:05</td>
+                        <td id="109" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="209" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="309" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="409" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="509" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>17:30</td>
-                        <td id="110"></td>
-                        <td id="210"></td>
-                        <td id="310"></td>
-                        <td id="410"></td>
-                        <td id="510"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>17:30</td>
+                        <td id="110" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="210" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="310" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="410" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="510" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>18:30</td>
-                        <td id="111"></td>
-                        <td id="211"></td>
-                        <td id="311"></td>
-                        <td id="411"></td>
-                        <td id="511"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>18:30</td>
+                        <td id="111" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="211" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="311" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="411" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="511" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>19:25</td>
-                        <td id="112"></td>
-                        <td id="212"></td>
-                        <td id="312"></td>
-                        <td id="412"></td>
-                        <td id="512"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>19:25</td>
+                        <td id="112" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="212" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="312" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="412" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="512" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>20:20</td>
-                        <td id="113"></td>
-                        <td id="213"></td>
-                        <td id="313"></td>
-                        <td id="413"></td>
-                        <td id="513"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>20:20</td>
+                        <td id="113" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="213" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="313" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="413" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="513" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
-                    <tr>
-                        <td>21:15</td>
-                        <td id="114"></td>
-                        <td id="214"></td>
-                        <td id="314"></td>
-                        <td id="414"></td>
-                        <td id="514"></td>
+                    <tr style='border: 1px solid;'>
+                        <td style='border: 1px solid;padding: 8px;text-align: center;'>21:15</td>
+                        <td id="114" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="214" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="314" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="414" style='border: 1px solid;padding: 8px;text-align: center;'></td>
+                        <td id="514" style='border: 1px solid;padding: 8px;text-align: center;'></td>
                     </tr>
                 </tbody>
             </table>
