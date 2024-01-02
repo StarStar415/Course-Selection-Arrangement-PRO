@@ -91,6 +91,7 @@ $(document).ready(function () {
             url: "query_courses_user.php",
             data: { 
               Course_ID: courseData[i].Course_ID ,
+              Grade: courseData[i].Grade,
               User_Name: User_Name
             },
     
@@ -98,7 +99,7 @@ $(document).ready(function () {
               checkCourseData = JSON.parse(checkResponse);
               console.log(checkCourseData);
               if(checkCourseData.length != 0){
-                $('input[name="selectedCourses[]"][value="' + checkCourseData[0].Course_ID + '"]').prop('checked', true);
+                $('input[name="selectedCourses[]"][value="' + checkCourseData[0].Course_ID + checkCourseData[0].Grade +'"]').prop('checked', true);
               }
             },
             error: function (error) {
@@ -107,7 +108,7 @@ $(document).ready(function () {
           });
           tableHTML +=
           '<label><td style="width: 60px;"><input type="checkbox" name="selectedCourses[]" value="' +
-          courseData[i].Course_ID +
+          courseData[i].Course_ID + courseData[i].Grade +
           '"></td></label>';
           tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
           tableHTML += "<td>" + courseData[i].Course_Name + "</td>";

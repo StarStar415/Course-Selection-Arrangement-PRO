@@ -96,7 +96,7 @@ $(document).ready(function () {
             tableHTML += "<tr>";
             tableHTML +=
             '<label><td style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
-            courseData[i].Course_ID +
+            courseData[i].Course_ID + courseData[i].Grade +
             '" checked></td></label>';
             tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
             tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
