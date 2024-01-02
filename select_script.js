@@ -3,6 +3,23 @@
 // 每次都會更新 nowSelect
 $(document).ready(function () {
     // 將事件監聽器附加到 checkbox 上
+    
+    var User_Name = $('#user_name').text();
+    console.log(User_Name);
+    $.ajax({
+        type: 'POST',
+        url: 'count_total_credit.php', 
+        data: {
+            User_Name: User_Name
+        },
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (error) {
+            console.error('錯誤：', error);
+        }
+        });
+
     $('#selectionClass, #nowSelectionClass, #favorSelectionClass').on('change', 'input[type="checkbox"]', function () {
         console.log("ouo");
         var id = $(this).closest('[id]').parent().attr('id');
@@ -30,7 +47,6 @@ $(document).ready(function () {
             var Time = currentRow.find('td:eq(8)').text();
             console.log('favorSelectionClass 觸發了變更事件');
         } 
-        var User_Name = $('#user_name').text();
         // 判斷 checkbox 的父元素是否有 class 'favorCourse'
         var isSelectCourse = $(this).closest('td').hasClass('selectCourse');
         var isFavorCourse = $(this).closest('td').hasClass('favorCourse');
