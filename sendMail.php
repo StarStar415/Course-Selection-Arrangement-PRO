@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 
 $mail = new PHPMailer(true); // Passing `true` enables exceptions
 $user = 'root';
-$password = '123';
+$password = '01057132';
 $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
 
 try {

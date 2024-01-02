@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
 
 $mail = new PHPMailer(true); // Passing `true` enables exceptions
 $user = 'root';
-$password = '123';
+$password = '01057132';
 $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
 
 try {
@@ -57,19 +57,34 @@ try {
     $stmt = $db->prepare($query);
     $error = $stmt->execute();
     $result = $stmt->fetchAll();
-    $tmp = '';
-    for ($i = 0; $i < count($result); $i++) {
-        $tmp .= $result[$i]['Course_ID'] . ' ';
-        $tmp .= $result[$i]['Course_Name'] . ' ';
-        $tmp .= $result[$i]['Dept_Name'] . ' ';
-        $tmp .= $result[$i]['Grade'] . ' ';
-        $tmp .= $result[$i]['Teacher_Name'] . ' ';
-        $tmp .= $result[$i]['Credit'] . ' ';
-        $tmp .= $result[$i]['Class_Type'] . ' ';
-        $tmp .= $result[$i]['Time'] . ' ';
-        $tmp .= "<br/>";
-    }
-    $tmp .= '</table>';
+    $tmp = '<h3>以下為您的選課清單：</h3><table border="1" style="width: 100%; border-collapse: collapse;">
+        <tr style="background-color: #f2f2f2;">
+            <th style="padding: 10px;">Course ID</th>
+            <th style="padding: 10px;">Course Name</th>
+            <th style="padding: 10px;">Dept Name</th>
+            <th style="padding: 10px;">Grade</th>
+            <th style="padding: 10px;">Teacher Name</th>
+            <th style="padding: 10px;">Credit</th>
+            <th style="padding: 10px;">Class Type</th>
+            <th style="padding: 10px;">Time</th>
+        </tr>';
+
+foreach ($result as $row) {
+    $tmp .= '<tr style="text-align: center;">';
+    $tmp .= '<td style="padding: 10px;">' . $row['Course_ID'] . '</td>';
+    $tmp .= '<td style="padding: 10px;">' . $row['Course_Name'] . '</td>';
+    $tmp .= '<td style="padding: 10px;">' . $row['Dept_Name'] . '</td>';
+    $tmp .= '<td style="padding: 10px;">' . $row['Grade'] . '</td>';
+    $tmp .= '<td style="padding: 10px;">' . $row['Teacher_Name'] . '</td>';
+    $tmp .= '<td style="padding: 10px;">' . $row['Credit'] . '</td>';
+    $tmp .= '<td style="padding: 10px;">' . $row['Class_Type'] . '</td>';
+    $tmp .= '<td style="padding: 10px;">' . $row['Time'] . '</td>';
+    $tmp .= '</tr>';
+}
+
+$tmp .= '</table>';
+
+
     $mail->msgHTML($tmp); // Set the HTML body
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
