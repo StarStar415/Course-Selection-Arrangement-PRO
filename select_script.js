@@ -234,7 +234,7 @@ $(document).ready(function () {
 
         function displayResults(response) {
         var tableHTML =
-            '<table id ="nowCourse" border="1"><thead><tr><th style="width: 35px;">選擇</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>學分   </th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
+            '<table id ="nowCourse" border="1"><thead><tr><th style="width: 35px;">刪除</th><th>課號</th><th>課名</th><th>開課系所</th><th>班級</th><th>老師</th><th>學分   </th><th>課程類型</th><th>開課時間</th></tr></thead><tbody>';
         var courseData = JSON.parse(response);
         for (var i = 0; i < courseData.length; i++) {
             tableHTML += "<tr>";
