@@ -14,9 +14,9 @@ h1 {
   margin: 0; /* 清除預設的外邊距 */
 }
 
-#user_block{
+#user_block {
   float: right;
-  padding: 0 10px; 
+  padding: 0 10px;
   font-size: 20px;
 }
 
@@ -70,6 +70,7 @@ input[type="checkbox"]:hover {
 #right {
   flex: 1;
   margin-left: 20px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,13 +93,14 @@ h1 {
   font-size: 50px;
 }
 
-#functionButton{
+#functionButton {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
-#exportButton ,#emailButton {
+#exportButton,
+#emailButton {
   background-color: rgb(255, 255, 255);
   border: 3px solid rgb(6, 22, 17);
   font-size: 150%;
@@ -107,7 +109,8 @@ h1 {
   border-radius: 5px;
   height: 50px;
 }
-#exportButton:hover,#emailButton:hover {
+#exportButton:hover,
+#emailButton:hover {
   background-color: #bd99d2;
 }
 h2 {
@@ -174,7 +177,7 @@ select option {
 }
 
 #select_type {
-    align-items: center; /* 垂直居中 */
+  align-items: center; /* 垂直居中 */
 }
 
 #department,
@@ -208,31 +211,31 @@ select option {
 
 #logoutButton {
   width: 60px;
-  padding: 8px; 
-  font-size: 16px; 
-  border: 1px solid #ccc; 
-  border-radius: 4px; 
-  outline: none; 
-  cursor: pointer; 
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
   background-color: #af86c3;
   color: #fff;
 }
 
 #queryButton {
-    width: 80px; /* Set the width */
-    padding: 8px; /* Set the padding */
-    font-size: 16px; /* Set the font size */
-    border: 1px solid #ccc; /* Set the border */
-    border-radius: 4px; /* Set the border-radius */
-    outline: none; /* Remove the outline on focus */
-    cursor: pointer; /* Add a pointer cursor */
-    background-color: #af86c3; /* Set the background color */
-    color: #fff;
+  width: 80px; /* Set the width */
+  padding: 8px; /* Set the padding */
+  font-size: 16px; /* Set the font size */
+  border: 1px solid #ccc; /* Set the border */
+  border-radius: 4px; /* Set the border-radius */
+  outline: none; /* Remove the outline on focus */
+  cursor: pointer; /* Add a pointer cursor */
+  background-color: #af86c3; /* Set the background color */
+  color: #fff;
 }
 
 #queryButton:hover {
-    background-color: #ab77c5; /* 修改背景顏色 */
-    color: #fff; /* 修改文字顏色 */
+  background-color: #ab77c5; /* 修改背景顏色 */
+  color: #fff; /* 修改文字顏色 */
 }
 
 #queryButton:focus {
@@ -240,11 +243,11 @@ select option {
   box-shadow: 0 0 5px rgba(104, 70, 173, 0.5); /* 增加陰影效果 */
 }
 
-#querryButton:active{
-    background-color: rgb(0,0,0); /* 修改背景顏色 */
+#querryButton:active {
+  background-color: rgb(0, 0, 0); /* 修改背景顏色 */
 }
 
-#selectionClass, 
+#selectionClass,
 #nowSelectionClass,
 #favorSelectionClass {
   width: 100%;
@@ -303,17 +306,17 @@ select option {
   scrollbar-width: thin;
 }
 @media only screen and (max-width: 1000px) {
-    #container {
-        flex-direction: column; 
-    }
-    #left {
-        width:98%;
-    }
+  #container {
+    flex-direction: column;
+  }
+  #left {
+    width: 98%;
+  }
 
-    #right {
-        margin-top: 20px; 
-        width:95%;
-    }
+  #right {
+    margin-top: 20px;
+    width: 95%;
+  }
 }
 
 .tab {
@@ -330,4 +333,3 @@ select option {
 .tab:hover {
   background-color: #ab77c5; /* 滑鼠懸停時的背景色 */
 }
-

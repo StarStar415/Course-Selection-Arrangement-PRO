@@ -1,7 +1,7 @@
 <?php session_start();
 
 $user = 'root';
-$password = '01057132';
+$password = '123';
 
 try {
     $db = new PDO('mysql:host=localhost;dbname=final_project;charset=utf8', $user, $password);
@@ -21,6 +21,7 @@ try {
     if (!$result)
         throw new PDOException("登入資訊錯誤");
 
+    //設定session
     $_SESSION['username'] = $result[0][0];
 
     $db = null;

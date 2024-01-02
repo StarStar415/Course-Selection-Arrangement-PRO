@@ -12,20 +12,36 @@
     <script src="select_script.js"></script>
     <script src="show_table_script.js"></script>
     <script src="change_select_table_script.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 
 <body>
+    <script>
+        function handleLogout() {
+            $.ajax({
+                type: "POST",
+                url: "session_remove.php",
+                success: function(response) {
+                    console.log(response);
+                    alert("登出成功");
+                    window.location.href = "loginPage.php";
+                },
+                error: function(error) {
+                    console.log(error);
+                },
+            });
+        }
+    </script>
     <?php
-
-    if(isset($_SESSION['username'])) {
+    if (isset($_SESSION['username'])) {
         $currentUsername = $_SESSION['username'];
-
-        echo '<h1>學途~啟航!<span id="user_block"><span id="user_img" ><img src="img/user.png" alt="User"></span><span id="user_name"> ' . $currentUsername . '</span>&nbsp;&nbsp;<span><button id="logoutButton" class="btn" >登出</button></span></span></h1>';
+        echo '<h1>學途~啟航!<span id="user_block"><span id="user_img" ><img src="img/user.png" alt="User"></span><span id="user_name"> ' . $currentUsername . '</span>&nbsp;&nbsp;<span><button id="logoutButton" class="btn" onclick="handleLogout()" >登出</button></span></span></h1>';
     } else {
         echo '<h1>學途~啟航!</h1>';
     }
     ?>
+
 
 
     <div id="container">
@@ -49,7 +65,7 @@
                         <?php
                         //--------這裡記得要改成自己的--------
                         $user = 'root';
-                        $password = '01057132';
+                        $password = '123';
                         //--------------------------------
                         try {
                             //--------這裡記得要改成自己的--------
@@ -176,9 +192,9 @@
             </div>
             <span id="functionButton">
                 <button id="exportButton">Export to PDF</button>
-                <button id="emailButton">Send to Email</button> 
+                <button id="emailButton">Send to Email</button>
             </span>
-            
+
         </div>
 
         <div id="right">
