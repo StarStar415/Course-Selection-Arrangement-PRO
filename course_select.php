@@ -1,6 +1,5 @@
 <?php session_start(); ?>
 <html>
-// 主頁面
 <head>
     <title>Course Select</title>
     <style type="text/css">

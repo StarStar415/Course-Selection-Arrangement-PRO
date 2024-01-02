@@ -1,82 +1,153 @@
 // checkbox 切換時候要寫入 user_class 資料和刪除 user_class 資料
 // 並且新增到右方課表
-// 每次都會更新 nowSelectionClass
+// 每次都會更新 nowSelect
 $(document).ready(function () {
     // 將事件監聽器附加到 checkbox 上
     $('#selectionClass, #nowSelectionClass').on('change', 'input[type="checkbox"]', function () {
         console.log("ouo");
         var currentRow = $(this).closest('tr');
-        var Course_ID = currentRow.find('td:eq(1)').text(); 
-        var Course_Name = currentRow.find('td:eq(2)').text(); 
-        var Dept_Name = currentRow.find('td:eq(3)').text();
-        var Grade = currentRow.find('td:eq(4)').text();
-        var Teacher_Name = currentRow.find('td:eq(5)').text();
-        var Credit = currentRow.find('td:eq(6)').text();
-        var Class_Type = currentRow.find('td:eq(7)').text();
-        var Time = currentRow.find('td:eq(8)').text();
+        var Course_ID = currentRow.find('td:eq(2)').text();
+        var Course_Name = currentRow.find('td:eq(3)').text(); 
+        console.log(Course_ID);
+        console.log(Course_Name);
+        var Dept_Name = currentRow.find('td:eq(4)').text();
+        var Grade = currentRow.find('td:eq(5)').text();
+        var Teacher_Name = currentRow.find('td:eq(6)').text();
+        var Credit = currentRow.find('td:eq(7)').text();
+        var Class_Type = currentRow.find('td:eq(8)').text();
+        var Time = currentRow.find('td:eq(9)').text();
         var User_Name = $('#user_name').text();
-        if ($(this).is(':checked')) {
-            // 將資料寫入 db
-            console.log(currentRow);
-
-            $.ajax({
-            type: 'POST',
-            url: 'insert_course.php', 
-            data: {
-                Course_ID: Course_ID,
-                Course_Name: Course_Name,
-                Dept_Name: Dept_Name,
-                Grade: Grade,
-                Teacher_Name: Teacher_Name,
-                Credit: Credit,
-                Class_Type: Class_Type,
-                Time: Time,
-                User_Name: User_Name
-            },
-            success: function (response) {
-                updateTable();
-            },
-            error: function (error) {
-                console.error('錯誤：', error);
+        // 判斷 checkbox 的父元素是否有 class 'favorCourse'
+        var isSelectCourse = $(this).closest('td').hasClass('selectCourse');
+        var isFavorCourse = $(this).closest('td').hasClass('favorCourse');
+        console.log(isSelectCourse);
+        console.log(isFavorCourse);
+        if (isFavorCourse) {
+            if ($(this).is(':checked')) {
+                // 將資料寫入 db
+                $.ajax({
+                type: 'POST',
+                url: 'insert_favor_course.php', 
+                data: {
+                    Course_ID: Course_ID,
+                    Course_Name: Course_Name,
+                    Dept_Name: Dept_Name,
+                    Grade: Grade,
+                    Teacher_Name: Teacher_Name,
+                    Credit: Credit,
+                    Class_Type: Class_Type,
+                    Time: Time,
+                    User_Name: User_Name
+                },
+                success: function (response) {
+                    updateTable();
+                },
+                error: function (error) {
+                    console.error('錯誤：', error);
+                }
+                });
+                
             }
-            });
-            
-            var timeArray = Time.split(',');
-            console.log(timeArray);
-            for(var i = 0; i < timeArray.length; i++){
-                $("#" + timeArray[i]).append('<span id="'+Course_ID+Grade+'">' + Course_ID + "<br>" + Course_Name + "<br>" + Teacher_Name + '</span>');
+            else{
+                // 將資料刪除 db
+                console.log(currentRow);
+                $.ajax({
+                type: 'POST',
+                url: 'delete_favor_course.php', 
+                data: {
+                    Course_ID: Course_ID,
+                    Grade: Grade,
+                    User_Name: User_Name
+                },
+                success: function (response) {
+                    updateTable();
+                },
+                error: function (error) {
+                    console.error('錯誤：', error);
+                }
+                });
             }
-            
         }
         else{
-            // 將資料刪除 db
-            console.log(currentRow);
-            $.ajax({
-            type: 'POST',
-            url: 'delete_course.php', 
-            data: {
-                Course_ID: Course_ID,
-                Grade: Grade,
-                User_Name: User_Name
-            },
-            success: function (response) {
-                updateTable();
-            },
-            error: function (error) {
-                console.error('錯誤：', error);
+            if ($(this).is(':checked')) {
+                // 將資料寫入 db
+                $.ajax({
+                type: 'POST',
+                url: 'insert_course.php', 
+                data: {
+                    Course_ID: Course_ID,
+                    Course_Name: Course_Name,
+                    Dept_Name: Dept_Name,
+                    Grade: Grade,
+                    Teacher_Name: Teacher_Name,
+                    Credit: Credit,
+                    Class_Type: Class_Type,
+                    Time: Time,
+                    User_Name: User_Name
+                },
+                success: function (response) {
+                    updateTable();
+                },
+                error: function (error) {
+                    console.error('錯誤：', error);
+                }
+                });
+                
+                var timeArray = Time.split(',');
+                console.log(timeArray);
+                for(var i = 0; i < timeArray.length; i++){
+                    $("#" + timeArray[i]).append('<span id="'+Course_ID+Grade+'">' + Course_ID + "<br>" + Course_Name + "<br>" + Teacher_Name + '</span>');
+                }
+                
             }
-            });
-            // 刪除右方課表
-            var timeArray = Time.split(',');
-            console.log(timeArray);
-            for(var i = 0; i < timeArray.length; i++){
-                $("#" + Course_ID+Grade).text("");
+            else{
+                // 將資料刪除 db
+                console.log(currentRow);
+                $.ajax({
+                type: 'POST',
+                url: 'delete_course.php', 
+                data: {
+                    Course_ID: Course_ID,
+                    Grade: Grade,
+                    User_Name: User_Name
+                },
+                success: function (response) {
+                    updateTable();
+                },
+                error: function (error) {
+                    console.error('錯誤：', error);
+                }
+                });
+                // 刪除右方課表
+                var timeArray = Time.split(',');
+                console.log(timeArray);
+                for(var i = 0; i < timeArray.length; i++){
+                    $("#" + Course_ID+Grade).text("");
+                }
             }
         }
+        
         function updateTable(){
             $.ajax({
                 type: "POST",
                 url: "select_class_output.php",
+                data: {
+                    User_Name: User_Name
+                },
+        
+                success: function (response) {
+                  displayResults(response);
+                },
+                error: function (error) {
+                  console.error("Error:", error);
+                },
+              });
+        }
+
+        function updateFavorTable(){
+            $.ajax({
+                type: "POST",
+                url: "favor_class_output.php",
                 data: {
                     User_Name: User_Name
                 },
