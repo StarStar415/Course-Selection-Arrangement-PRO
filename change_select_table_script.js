@@ -50,8 +50,8 @@ $(document).ready(function () {
         for (var i = 0; i < courseData.length; i++) {
             tableHTML += "<tr>";
             tableHTML +=
-            '<label><td style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
-            courseData[i].Course_ID +
+            '<label><td class="selectCourse" style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
+            courseData[i].Course_ID + courseData[i].Grade +
             '" checked></td></label>';
             tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
             tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
@@ -101,8 +101,8 @@ $(document).ready(function () {
         for (var i = 0; i < courseData.length; i++) {
             tableHTML += "<tr>";
             tableHTML +=
-            '<label><td style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
-            courseData[i].Course_ID +
+            '<label><td class="favorCourse" style="width: 35px;"><input type="checkbox" name="selectedCourses[]" value="' +
+            courseData[i].Course_ID + courseData[i].Grade +
             '" checked></td></label>';
             tableHTML += "<td>" + courseData[i].Course_ID + "</td>";
             tableHTML += "<td>" + courseData[i].Course_Name + "</td>";
